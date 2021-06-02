@@ -24,6 +24,7 @@ class Routes extends BaseComponent {
             <Route exact path={"/header"} component={Header} />
             <Route exact path={"/maincomponent"} component={CardComponent} />
             <Route exact path={"/tweetlink"} component={Link} />
+            {/* <Route exact path={"/popup"} component={}/> */}
             <Redirect exact from="*" to="/" />
           </Switch>
         </Router>
