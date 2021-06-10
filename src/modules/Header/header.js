@@ -1,6 +1,8 @@
-import React from "react";
 import styled, { css } from "styled-components";
 import { Row, Column } from "simple-flexbox";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import React, { useState } from "react";
+
 const Container = styled.div`
   width: 100%;
   height: 74px;
@@ -44,13 +46,20 @@ const Button = styled.button`
   line-height: 0.28;
 `;
 export default function HeaderComponent() {
+  const [inputValue, setInputValue] = useState("");
   return (
     <Container>
       <Row>
         <Image src="/images/tweetarchive.svg" />
         <Span>TweetArchive</Span>
-        <Input type="text" />
-        <Button>Copy</Button>
+        <Input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <CopyToClipboard text={inputValue}>
+          <Button>Copy</Button>
+        </CopyToClipboard>
       </Row>
     </Container>
   );

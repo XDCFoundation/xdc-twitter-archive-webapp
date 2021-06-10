@@ -1,6 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "simple-flexbox";
+import React, { useState } from "react";
+
 import Header from "../Header";
 
 const Container = styled.div`
@@ -22,16 +23,17 @@ const Input = styled.input`
   border-radius: 4px;
   margin-left: 23%;
   margin-top: 3%;
-  width: 100%;
-  border: solid 1px #aab1ff;
 
+  border: solid 1px #aab1ff;
   padding-left: 30px;
   justify-content: center;
   flex-flow: row wrap;
+  width: 50%;
 `;
 const Searchicon = styled.img`
   position: absolute;
   top: 214px;
+  font-size: 15px;
   margin-left: 298px;
   @media (max-width: 1000px) {
     margin-right: 100px;
@@ -39,7 +41,6 @@ const Searchicon = styled.img`
 
     margin-top: -20px;
     justify-content: center;
-    font-size: 15px;
   }
 `;
 const Button = styled.button`
@@ -50,7 +51,8 @@ const Button = styled.button`
   margin-top: 3%;
   color: #ffffff;
   border: none;
-  width: 20%;
+  width: 92px;
+
   font-size: 15px;
   flex-flow: row wrap;
 
@@ -72,16 +74,14 @@ const Card = styled.img`
   // }
 `;
 const Span = styled.span`
-  margin-left: 82%;
-  justify-content: center;
   font-size: 14px;
   margin-top: 15px;
+  margin-left: 64%;
+  justify-content: center;
   @media (max-width: 1000px) {
     margin-right: 50px;
 
     margin-left: 100px;
-    justify-content: center;
-    font-size: 15px;
   }
 `;
 const Cardcontainer = styled.div``;
@@ -89,15 +89,13 @@ const Heading = styled.span`
   font-size: 18px;
   font-weight: 500;
   font-stretch: normal;
-  font-style: normal;
-  line-height: 1.17;
-  letter-spacing: normal;
-  text-align: left;
+ line-height: 1.17;
+ text-align: left;
   color: #09184b;
-  aligned-items: center;
-  justify-content:center
+ justify-content:center
   margin-bottom: 14px;
   margin-left: 115px;
+  margin-top: -50px;
 `;
 const SubHeading = styled.span`
   font-size: 14px;
@@ -108,6 +106,7 @@ const SubHeading = styled.span`
   letter-spacing: normal;
   text-align: center;
   color: #09184b;
+  justify-content: center;
   align-items: center;
 `;
 const Container_one = styled.div``;
@@ -176,8 +175,39 @@ export default function TweetLink() {
               </Rowcontainer>
             </Row>
           </Cardcontainer>
+          <Footer>
+            <Row>
+              <Column>
+                <Row>
+                  <Poweredheading>Powered By &nbsp; </Poweredheading>
+                  <Xinfin>Xinfin</Xinfin>
+                </Row>
+
+                <Year>2021</Year>
+              </Column>
+            </Row>
+          </Footer>
         </Column>
       </Container>
     </>
   );
 }
+const Footer = styled.div`
+  justify-content: center;
+  display: flex;
+  margin-top: 20%;
+`;
+const Poweredheading = styled.span`
+  font-size: 13px;
+  color: #09184b;
+`;
+const Xinfin = styled.span`
+  color: #4d84fb;
+  font-size: 13px;
+`;
+const Year = styled.span`
+  color: #09184b;
+  font-size: 13px;
+  justify-content: center;
+  display: flex;
+`;
