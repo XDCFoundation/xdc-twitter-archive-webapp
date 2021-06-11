@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Row, Column } from "simple-flexbox";
 import React, { useState } from "react";
-
 import Header from "../Header";
 
 const Container = styled.div`
@@ -33,14 +32,17 @@ const Input = styled.input`
 const Searchicon = styled.img`
   position: absolute;
   top: 214px;
-  font-size: 15px;
-  margin-left: 298px;
-  @media (max-width: 1000px) {
-    margin-right: 100px;
-    margin-left: 100px;
 
-    margin-top: -20px;
-    justify-content: center;
+  margin-left: 298px;
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 203px;
+
+    margin-left: 186px;
+  }
+
+  @media (max-width: 980px) {
+    margin-left: 24%;
   }
 `;
 const Button = styled.button`
@@ -57,7 +59,7 @@ const Button = styled.button`
   flex-flow: row wrap;
 
   margin-left: 10px;
-  @media (max-width: 1000px) {
+  @media (max-width: 767px) {
     margin-right: 100px;
 
     justify-content: center;
@@ -67,21 +69,17 @@ const Card = styled.img`
   border: none;
   padding: 90px;
   width: 100%;
-
-  // @media (max-width: 1000px) {
-  //   margin-left: -180px;
-  //   font-size: 24px;
-  // }
 `;
 const Span = styled.span`
   font-size: 14px;
   margin-top: 15px;
   margin-left: 64%;
   justify-content: center;
-  @media (max-width: 1000px) {
-    margin-right: 50px;
-
-    margin-left: 100px;
+  // @media (max-width: 767px) {
+  //   margin-left: 58%;
+  // }
+  @media (max-width: 980px) {
+    margin-left: 62%;
   }
 `;
 const Cardcontainer = styled.div``;
@@ -121,7 +119,12 @@ const Rowcontainer = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  justify-content: center;
+  @media (max-width: 980px) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 export default function TweetLink() {
   return (
@@ -211,3 +214,7 @@ const Year = styled.span`
   justify-content: center;
   display: flex;
 `;
+
+// Mobile screen sizes 767 pixels and below i.e. max-width: 767px
+// 	Tablet screen sizes between 980 pixels and 768 pixels i.e. min-width:768px and max-width: 980px
+// 	Desktop screen sizes of 981 pixels and above i.e. min-width: 981px
