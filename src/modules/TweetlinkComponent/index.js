@@ -4,6 +4,8 @@ import Header from "../Header";
 import TweetLink from "./tweetLinkComponent";
 import Popup from "../popupbox";
 import { Row, Column } from "simple-flexbox";
+import Utils from "../../utility";
+
 export default class Link extends BaseComponent {
   render() {
     return (
