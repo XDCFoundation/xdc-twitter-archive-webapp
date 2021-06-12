@@ -78,8 +78,7 @@ const Card = styled.img`
 `;
 const Span = styled.span`
   font-size: 14px;
-
-  margin-right: 196px;
+  margin-right: 144px;
 
   // @media (max-width: 767px) {
   //   margin-left: 58%;
@@ -134,6 +133,7 @@ const Rowcontainer = styled.div`
     align-items: center;
   }
 `;
+
 export default function TweetLink() {
   return (
     <>
@@ -197,7 +197,7 @@ export default function TweetLink() {
                   <Xinfin>Xinfin</Xinfin>
                 </Row>
 
-                <Year>2021</Year>
+                <Year> &copy; 2021</Year>
               </Column>
             </Row>
           </Footer>

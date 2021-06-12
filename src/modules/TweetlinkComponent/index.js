@@ -7,6 +7,14 @@ import { Row, Column } from "simple-flexbox";
 import Utils from "../../utility";
 
 export default class Link extends BaseComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isdisabled: false,
+    };
+  }
+
   render() {
     return (
       <div>
