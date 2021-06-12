@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Row, Column } from "simple-flexbox";
 import React, { useState } from "react";
 import Header from "../Header";
-
+// import "./assets/styles/custom.css";
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -17,33 +17,39 @@ const Enterlink = styled.span`
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
+  font-family: "Raleway", sans-serif !important;
+
+  line-height: 1.16;
+  letter-spacing: normal;
+  text-align: left;
+  color: #09184b;
 `;
 const Input = styled.input`
   border-radius: 4px;
   margin-left: 23%;
   margin-top: 3%;
 
+  background: url(/images/search.svg) no-repeat left center;
   border: solid 1px #aab1ff;
-  padding-left: 30px;
+  padding-left: 50px;
   justify-content: center;
   flex-flow: row wrap;
   width: 50%;
 `;
 const Searchicon = styled.img`
   position: absolute;
-  top: 214px;
+  top: 46%;
+  left: 27%;
+  //  @media (max-width: 767px) {
+  //   position: absolute;
+  //   top: 203px;
 
-  margin-left: 298px;
-  @media (max-width: 767px) {
-    position: absolute;
-    top: 203px;
+  //   margin-left: 186px;
+  // }
 
-    margin-left: 186px;
-  }
-
-  @media (max-width: 980px) {
-    margin-left: 24%;
-  }
+  // @media (max-width: 980px) {
+  //   margin-left: 24%;
+  // }
 `;
 const Button = styled.button`
   background-color: #3366ff;
@@ -72,14 +78,15 @@ const Card = styled.img`
 `;
 const Span = styled.span`
   font-size: 14px;
-  margin-top: 15px;
-  margin-left: 64%;
-  justify-content: center;
+
+  margin-right: 196px;
+
   // @media (max-width: 767px) {
   //   margin-left: 58%;
   // }
   @media (max-width: 980px) {
-    margin-left: 62%;
+    font-size: 14px;
+    margin-right: 2px;
   }
 `;
 const Cardcontainer = styled.div``;
@@ -92,8 +99,9 @@ const Heading = styled.span`
   color: #09184b;
  justify-content:center
   margin-bottom: 14px;
-  margin-left: 115px;
+  
   margin-top: -50px;
+  margin-left: 90px;
 `;
 const SubHeading = styled.span`
   font-size: 14px;
@@ -116,10 +124,10 @@ const Container_three = styled.div`
 `;
 const Rowcontainer = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  // flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  @media (max-width: 980px) {
+  @media (max-width: 768px) {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -130,17 +138,20 @@ export default function TweetLink() {
   return (
     <>
       <Container>
+        {/* <Searchicon src="/images/search.svg" /> */}
         <Column>
           <Enterlink>Enter Tweet Link</Enterlink>
 
           <Row>
-            <Searchicon src="/images/search.svg" />
             <Input type="text" />
 
             <Button>Archive</Button>
           </Row>
+
           <Row>
-            <Span>20,000 tweets have been archived</Span>
+            <Tweetdiv>
+              <Span>20,000 tweets have been archived</Span>
+            </Tweetdiv>
           </Row>
           <Cardcontainer>
             <Row>
@@ -213,6 +224,15 @@ const Year = styled.span`
   font-size: 13px;
   justify-content: center;
   display: flex;
+`;
+const Tweetdiv = styled.div`
+  right: 162px;
+  position: absolute;
+
+  @media (max-width: 767px) {
+    right: 104px;
+    position: absolute;
+  }
 `;
 
 // Mobile screen sizes 767 pixels and below i.e. max-width: 767px
