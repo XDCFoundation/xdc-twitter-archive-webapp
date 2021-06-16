@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Row, Column } from "simple-flexbox";
 import React, { useState } from "react";
 import Header from "../Header";
-// import "./assets/styles/custom.css";
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -51,6 +51,7 @@ const Searchicon = styled.img`
   //   margin-left: 24%;
   // }
 `;
+
 const Button = styled.button`
   background-color: #3366ff;
   border-radius: 4px;
@@ -138,14 +139,19 @@ export default function TweetLink() {
   return (
     <>
       <Container>
-        {/* <Searchicon src="/images/search.svg" /> */}
         <Column>
           <Enterlink>Enter Tweet Link</Enterlink>
 
           <Row>
             <Input type="text" />
 
-            <Button>Archive</Button>
+            <Button
+              onClick={() => {
+                this.setState({ visible: false });
+              }}
+            >
+              Archive
+            </Button>
           </Row>
 
           <Row>
