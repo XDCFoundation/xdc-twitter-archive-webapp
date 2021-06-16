@@ -5,7 +5,7 @@ import TweetLink from "./tweetLinkComponent";
 import Popup from "../popupbox";
 import { Row, Column } from "simple-flexbox";
 import Utils from "../../utility";
-import Headerconditional from "../Header/Header2";
+import Headerconditional from "../Header/Conditionalheader";
 
 export default class Link extends BaseComponent {
   constructor(props) {
