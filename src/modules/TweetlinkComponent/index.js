@@ -5,13 +5,14 @@ import TweetLink from "./tweetLinkComponent";
 import Popup from "../popupbox";
 import { Row, Column } from "simple-flexbox";
 import Utils from "../../utility";
+import Headerconditional from "../Header/Conditionalheader";
 
 export default class Link extends BaseComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      isdisabled: false,
+      visible: false,
     };
   }
 
@@ -19,7 +20,7 @@ export default class Link extends BaseComponent {
     return (
       <div>
         <Column>
-          <Header />
+          <Headerconditional />
           {/* <Popup /> */}
         </Column>
 
