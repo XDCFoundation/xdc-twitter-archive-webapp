@@ -6,6 +6,7 @@ import Popup from "../popupbox";
 import { Row, Column } from "simple-flexbox";
 import Utils from "../../utility";
 import Headerconditional from "../Header/Conditionalheader";
+import FooterComponent from "../Footer/footer";
 
 export default class Link extends BaseComponent {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class Link extends BaseComponent {
         </Column>
 
         <TweetLink />
+        <FooterComponent />
       </div>
     );
   }
