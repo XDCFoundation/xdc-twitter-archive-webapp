@@ -173,7 +173,8 @@ const useStyles = makeStyles((theme) => ({
   },
   cardMedia: {
     paddingTop: "56.25%", // 16:9
-    height: 140,
+    width: "75%",
+    height: "62%",
   },
   cardContent: {
     flexGrow: 1,
@@ -255,7 +256,7 @@ export default function Album() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                    image="/images/Fake.svg"
                     title="Paella dish"
                   />
 
@@ -276,7 +277,7 @@ export default function Album() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                    image="/images/newarchive.svg"
                     title="Paella dish"
                   />
 
@@ -297,7 +298,7 @@ export default function Album() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                    image="images/Legalnews.svg"
                     title="Paella dish"
                   />
 
