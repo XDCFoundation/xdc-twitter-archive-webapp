@@ -1,0 +1,144 @@
+ // <div classeName={classes.main}>
+    //   <div className={classes.root}>
+    //     <Grid item xs={12}>
+    //       <Row className="justify-content-center">
+    //         <span className={classes.span}>Enter Tweet Link</span>
+    //       </Row>
+    //     </Grid>
+    //     <Grid item xs={12}>
+    //       <Row className="justify-content-center">
+    //         <input className={classes.input} type="text" />
+    //         <button className={classes.button}>Archive</button>
+    //       </Row>
+    //     </Grid>
+    //     <Grid container>
+    //       <Grid item xs={4}>
+    //         <Row>
+    //           <img src="images/Fake.svg" />
+    //         </Row>
+    //       </Grid>
+    //       <Grid item xs={4}>
+    //         <Row>
+    //           <img src="images/archivetweet.svg" />
+    //         </Row>
+    //       </Grid>
+    //       <Grid item xs={4}>
+    //         <Row>
+    //           <img src="images/Legalnews.svg" />
+    //         </Row>
+    //       </Grid>
+
+    //       <div className="card">
+    //         <Image src="images/Fake.svg" />
+    //         <div className="info">
+    //           <span>Stop Fake News</span>
+    //           <p>
+    //             {" "}
+    //             Help in making the world better-informed by stopping fake news
+    //           </p>
+    //         </div>
+    //       </div>
+
+    //       <div className="card">
+    //         <Image src="images/archivetweet.svg" />
+    //         <div className="info">
+    //           <span>Archive your Tweets</span>
+    //           <p>
+    //             {" "}
+    //             Archive your tweets in our platform so that it stays forever
+    //           </p>
+    //         </div>
+    //       </div>
+    //       <div className="card">
+    //         <Image src="images/Legalnews.svg" />
+    //         <div className="info">
+    //           <span> Save links for legal actions</span>
+    //           <p>Use your saved links for the future legal actions</p>
+    //         </div>
+    //       </div>
+
+    //       <Grid>
+    //         <Row>
+    //           <div>Save links for legal actions</div>
+    //           <div>Use your saved links for the future legal actions</div>
+    //         </Row>
+    //       </Grid>
+    //       <Grid>
+    //         <Row>
+    //           <div>Save links for legal actions</div>
+    //           <div>Use your saved links for the future legal actions</div>
+    //         </Row>
+    //       </Grid>
+    //     </Grid>
+    //   </div>
+    // </div>
+
+    const Image = styled.img`
+  width: 55%;
+`;
+
+const FakeNewsImage = styled.img`
+  width: 50%;
+`;
+
+const ImageContainer = styled.div`
+  margin-top: 50px;
+`;
+
+const Label = styled.label`
+  font-size: 14px;
+  margin-top: 14px;
+  margin-left: 12px;
+`;
+
+const FakeNewsLabel = styled.label`
+  margin-top: 13px;
+  font-size: 14px;
+`;
+
+const SubContent = styled.span`
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+`;
+      {/* <div className="card">
+            <Image src="images/Fake.svg" />
+            <div className="info">
+              <span>Stop Fake News</span>
+              <p>
+                {" "}
+                Help in making the world better-informed by stopping fake news
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <Image src="images/archivetweet.svg" />
+            <div className="info">
+              <span>Archive your Tweets</span>
+              <p>
+                {" "}
+                Archive your tweets in our platform so that it stays forever
+              </p>
+            </div>
+          </div>
+          <div className="card">
+            <Image src="images/Legalnews.svg" />
+            <div className="info">
+              <span> Save links for legal actions</span>
+              <p>Use your saved links for the future legal actions</p>
+            </div>
+          </div> */}
+
+          {/* <Grid>
+            <Row>
+              <div>Save links for legal actions</div>
+              <div>Use your saved links for the future legal actions</div>
+            </Row>
+          </Grid>
+          <Grid>
+            <Row>
+              <div>Save links for legal actions</div>
+              <div>Use your saved links for the future legal actions</div>
+            </Row>
+          </Grid> */}

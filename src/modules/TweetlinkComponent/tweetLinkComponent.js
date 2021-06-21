@@ -159,14 +159,9 @@ export default function TweetLink() {
               <Rowcontainer>
                 <Container_one>
                   <Column>
-                    <Card src="images/Fake.svg" />
+                    <Card src="/images/Fake.svg" />
                     <Heading>Stop Fake News</Heading>
-                    {/* <Subheadingdiv>
-                      <SubHeading>
-                        Help in making the world better-informed by stopping
-                        fake news
-                      </SubHeading>
-                    </Subheadingdiv> */}
+
                     <SubHeading>
                       Help in making the world better-informed by stopping fake
                       news
