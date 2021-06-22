@@ -45,7 +45,7 @@ const Button = styled.button`
   font-style: normal;
   line-height: 0.28;
 `;
-export default function HeaderComponent() {
+export default function HeaderComponent(props) {
   const [inputValue, setInputValue] = useState("");
   return (
     <Container>
@@ -53,14 +53,15 @@ export default function HeaderComponent() {
         <Image src="/images/tweetarchive.svg" />
         <Span>TweetArchive</Span>
 
-        <Input
+       {props.visible && <Input
           type="text"
-          value={inputValue}
+          value={props.link}
           onChange={(e) => setInputValue(e.target.value)}
-        />
-        <CopyToClipboard text={inputValue}>
+        />}
+        {props.visible && <CopyToClipboard text={inputValue}>
           <Button>Copy</Button>
-        </CopyToClipboard>
+        </CopyToClipboard>}
+      
       </Row>
     </Container>
   );

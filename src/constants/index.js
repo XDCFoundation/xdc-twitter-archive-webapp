@@ -19,5 +19,7 @@ export const httpConstants = {
     DEVICE_TYPE: {
         WEB: 'web'
     },
-    API_END_POINT: {}
+    API_END_POINT: {
+        TWEET_LINK: '/xinfin-twitter-gettweetsfromtweeturl',
+    }
 };

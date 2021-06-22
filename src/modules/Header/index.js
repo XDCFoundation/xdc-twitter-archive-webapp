@@ -4,8 +4,10 @@ import BaseComponent from "../baseComponent";
 import { withRouter } from "react-router-dom";
 
 export default class Header extends BaseComponent {
-  state = { visible: true };
+  constructor(props) {
+    super(props);
+  }
   render() {
-    return <div> {this.state.visible ? <HeaderComponent /> : null}</div>;
+    return <div><HeaderComponent visible={this.props.visible} link={this.props.link}/></div>;
   }
 }
