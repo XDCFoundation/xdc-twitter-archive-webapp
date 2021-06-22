@@ -14,6 +14,7 @@ const toast = ToastService.new({
 let moment = require("moment");
 const cookies = new Cookies();
 const utility = {
+  parseResponse,
   getHeader,
   apiFailureToast,
   apiSuccessToast,
@@ -225,7 +226,11 @@ function epochToDate(timeStamp, timeFormat) {
 function getTimeFromNow(timeStamp) {
   return moment(timeStamp, "YYYYMMDD").fromNow();
 }
-
+function parseResponse(promise) {
+  return promise.then(data => {
+      return [null, data]; 
+  }).catch(err => [err]);
+};
 function dateCompare(timeStampFrom, timeStampTo) {
   let diffTime = timeStampFrom * 1000 - timeStampTo;
   let diffDays = diffTime / (1000 * 60 * 60 * 24);
