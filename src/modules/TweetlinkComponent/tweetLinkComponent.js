@@ -135,7 +135,7 @@ const Rowcontainer = styled.div`
   }
 `;
 
-export default function TweetLink() {
+export default function TweetLink(props) {
   return (
     <>
       <Container>
@@ -143,13 +143,14 @@ export default function TweetLink() {
           <Enterlink>Enter Tweet Link</Enterlink>
 
           <Row>
-            <Input type="text" />
+            <Input 
+            id="tweetLink" 
+            type="text" 
+            name="tweetLink"
+            value={props.state.tweetLink}
+            onChange={props.tweetLinkHandler} />
 
-            <Button
-              onClick={() => {
-                this.setState({ visible: false });
-              }}
-            >
+            <Button onClick={props.onSaveTweetClicked }>
               Archive
             </Button>
           </Row>
