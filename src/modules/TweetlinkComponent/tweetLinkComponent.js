@@ -89,6 +89,18 @@ const Span = styled.span`
     margin-right: 2px;
   }
 `;
+const Span1 = styled.span`
+  font-size: 14px;
+  margin-right: 144px;
+ color:red;
+  // @media (max-width: 767px) {
+  //   margin-left: 58%;
+  // }
+  @media (max-width: 980px) {
+    font-size: 14px;
+    margin-right: 2px;
+  }
+`;
 const Cardcontainer = styled.div``;
 const Heading = styled.span`
   font-size: 18px;
@@ -157,6 +169,7 @@ export default function TweetLink(props) {
 
           <Row>
             <Tweetdiv>
+              {props.state.errorValidation && <Span1>{props.state.errorValidation}</Span1>}
               <Span>20,000 tweets have been archived</Span>
             </Tweetdiv>
           </Row>
