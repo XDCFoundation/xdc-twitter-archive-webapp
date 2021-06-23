@@ -9,6 +9,7 @@ import Headerconditional from "../Header/Conditionalheader";
 import HeaderComponent from "../Header/header"
 import TweetService from "../../services/tweetLinkService";
 import TweetDetail from "./tweetLinkDetail"
+import utility from "../../utility";
 
 export default class Link extends BaseComponent {
   constructor(props) {
@@ -17,7 +18,8 @@ export default class Link extends BaseComponent {
     this.state = {
       visible: false,
       tweetLink: '',
-      response: []
+      response: [],
+      errorValidation:''
     };
   }
   getTweetLinkDetail = async () => {
@@ -37,7 +39,18 @@ export default class Link extends BaseComponent {
     this.setState({ tweetLink: value });
     console.log("this.setState", this.state.tweetLink)
   }
+  validateUrl = () => {
+    this.setState({
+      errorValidation:utility.isValidURL(this.state.tweetLink)
+      ?""
+      :"URL is not valid"
+    });
+    return (
+      utility.isValidURL(this.state.tweetLink)
+    );
+  };
   onSaveTweetClicked = async () => {
+    if (!this.validateUrl()) return;
     this.setState({ visible: true })
     this.getTweetLinkDetail()
   }
