@@ -14,6 +14,7 @@ const toast = ToastService.new({
 let moment = require("moment");
 const cookies = new Cookies();
 const utility = {
+  isValidURL,
   parseResponse,
   getHeader,
   apiFailureToast,
@@ -236,7 +237,10 @@ function dateCompare(timeStampFrom, timeStampTo) {
   let diffDays = diffTime / (1000 * 60 * 60 * 24);
   return diffDays;
 }
-
+function isValidURL(str){
+  let regexp = /^https:\/\/twitter.com\/[A-Z]*[_]*[a-z]*[_]*[A-Z]*[_]*[a-z]*[_]*[A-Z]*[a-z]*[0-9]*[_]*\/status\/[0-9]*$/
+  return regexp.test(str);
+}
 function getDateAfterOneYear(timeStamp) {
   timeStamp = Math.floor(timeStamp); //to convert to integer if seconds is String.
   let dateObject = new Date(timeStamp);
