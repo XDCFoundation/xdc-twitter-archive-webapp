@@ -1,5 +1,5 @@
 {
-  "name": "Xinfin-Archive-web-app",
+  "name": "xinfin-archive-web-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-s-alert": "^1.4.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^3.1.1",
     "redux": "latest",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
@@ -51,5 +51,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://Himanshukushwaha@bitbucket.org/leewayhertz/xinfin-twitter-archive-webapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/leewayhertz/xinfin-twitter-archive-webapp#readme"
 }

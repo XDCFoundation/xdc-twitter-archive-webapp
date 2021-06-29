@@ -2,6 +2,8 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
+import Paper from "@material-ui/core/Paper";
+
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,7 +15,7 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import TextField from "@material-ui/core/TextField";
 import CardActionArea from "@material-ui/core/CardActionArea";
-
+import { shadows } from '@material-ui/system';
 import { Row, Column } from "simple-flexbox";
 
 // function Copyright() {
@@ -44,10 +46,21 @@ const useStyles = makeStyles((theme) => ({
 
     outline: "none !important",
   },
-  card: {
+  
+  // card: {
+  //   height: "100%",
+  //   display: "flex",
+  //   boxShadow:"none !important",
+  //   flexDirection: "column",
+  //   boxShadow: 0 ,
+  //   outline: "none !important",
+  // },
+  paper: {
     height: "100%",
     display: "flex",
+    boxShadow:"none !important",
     flexDirection: "column",
+    boxShadow: "none !important" ,
     outline: "none !important",
   },
   cardMedia: {
@@ -94,9 +107,9 @@ export default function Album() {
     <React.Fragment>
       <CssBaseline />
 
-      <main>
+      <main background= "white">
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+          <Container  maxWidth="sm">
             <Typography
               component="h2"
               variant="h4"
@@ -133,7 +146,7 @@ export default function Album() {
         <Container className={classes.cardGrid} fixed>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={4}>
-              <Card className={classes.card}>
+              <Paper className={classes.paper}>
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardMedia}
@@ -151,10 +164,10 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-              </Card>
+              </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
-              <Card className={classes.card}>
+              <Paper className={classes.paper}>
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardMedia}
@@ -172,10 +185,10 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-              </Card>
+              </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
-              <Card className={classes.card}>
+              <Paper className={classes.paper}>
                 <CardActionArea>
                   <CardMedia
                     className={classes.cardMedia}
@@ -192,7 +205,7 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-              </Card>
+              </Paper>
             </Grid>
           </Grid>
         </Container>
