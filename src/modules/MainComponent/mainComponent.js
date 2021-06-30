@@ -8,12 +8,21 @@ const MainContainer = styled.div`
 const Container = styled.div`
   justify-content: center;
   display: flex;
+  
 `;
+const Data = styled.div`
+  justify-content: center;
+  display: flex;
+  height:179px;
+  `;
 // Xinfin twitter
 export default function MainComponent() {
   return (
     <MainContainer>
       <Container>Xinfintwitter</Container>
+      <Data>
+
+      </Data>
     </MainContainer>
   );
 }
