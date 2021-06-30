@@ -11,6 +11,8 @@ import Header from "./modules/Header";
 import CardComponent from "./modules/MainComponent";
 import Link from "./modules/TweetlinkComponent";
 
+import Demo from "./Demo";
+
 class Routes extends BaseComponent {
   componentDidMount() {}
 
@@ -23,8 +25,8 @@ class Routes extends BaseComponent {
             <Route exact path={"/sign-up"} component={SignUp} />
             <Route exact path={"/header"} component={Header} />
             <Route exact path={"/maincomponent"} component={CardComponent} />
-            <Route exact path={"/"} component={Link} />
-
+            <Route exact path={"/tweetlink"} component={Link} />
+            <Route exact path={"/"} component={Demo} />
             {/* <Route exact path={"/popup"} component={}/> */}
             <Redirect exact from="*" to="/" />
           </Switch>

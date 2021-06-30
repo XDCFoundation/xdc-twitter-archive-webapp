@@ -35,7 +35,7 @@ const Button = styled.button`
   color: #ffffff;
   height: 41px;
   padding: 10px;
-  margin: 16px;
+  margin: 15px;
   border: none;
   border-radius: 4px;
   background-color: #5760bc;
@@ -44,6 +44,7 @@ const Button = styled.button`
   font-stretch: normal;
   font-style: normal;
   line-height: 0.28;
+  width: 100px;
 `;
 export default function HeaderComponent() {
   const [inputValue, setInputValue] = useState("");
@@ -51,10 +52,12 @@ export default function HeaderComponent() {
     <Container>
       <Row>
         <Image src="/images/tweetarchive.svg" />
+        {/* <Image src="/images/newtweetimage.svg" /> */}
         <Span>TweetArchive</Span>
 
         <Input
           type="text"
+          readOnly={true}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
