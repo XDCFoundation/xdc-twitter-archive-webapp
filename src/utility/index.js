@@ -14,6 +14,7 @@ const toast = ToastService.new({
 let moment = require("moment");
 const cookies = new Cookies();
 const utility = {
+  parseResponse,
   getHeader,
   apiFailureToast,
   apiSuccessToast,
@@ -160,7 +161,11 @@ function isNumber(n) {
 function apiFailureToast(message) {
   toast.error(message ? message : "apiConstant.API_FAILURE");
 }
-
+function parseResponse(promise) {
+  return promise.then(data => {
+      return [null, data];
+  }).catch(err => [err]);
+}
 function apiSuccessToast(msg) {
   toast.success(msg ? msg : "apiConstant.API_SUCCESS");
 }
