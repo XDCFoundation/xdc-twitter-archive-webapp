@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
 import Paper from "@material-ui/core/Paper";
 
 import CardContent from "@material-ui/core/CardContent";
@@ -15,6 +18,11 @@ import TextField from "@material-ui/core/TextField";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { shadows } from "@material-ui/system";
 import { Row, Column } from "simple-flexbox";
+import MainComponent from "../modules/MainComponent/mainComponent";
+import { useHistory } from "react-router-dom";
+
+// import Utils from "../utility";
+// import TweetService from "../services/index"
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -31,6 +39,14 @@ const useStyles = makeStyles((theme) => ({
     outline: "none !important",
   },
 
+  // card: {
+  //   height: "100%",
+  //   display: "flex",
+  //   boxShadow:"none !important",
+  //   flexDirection: "column",
+  //   boxShadow: 0 ,
+  //   outline: "none !important",
+  // },
   paper: {
     height: "100%",
     display: "flex",
@@ -138,15 +154,37 @@ const useStyles = makeStyles((theme) => ({
 export default function Album() {
   const classes = useStyles();
 
+  // const [postTweet, setPostTweet] = useState([]);
+
+  // useEffect(async () => {
+  //   let urlPath = "?url=";
+  //   let [error, Tweet] = await Utils.parseResponse(
+  //     TweetService.getTweetByUrl(urlPath, {})
+  //   );
+  //   if (error || !Tweet) return;
+  //   setPostTweet(Tweet);
+  // }, []);
+
+  const history = useHistory();
+  const redirect = () => {
+    history.push("/MainComponent");
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
 
-      <main className={classes.main}>
+      <main background="white">
         <div className={classes.heroContent}>
-          <Container className={classes.container} maxWidth="sm">
-            {/* <div className={classes.maindiv}> */}
-            <Typography className={classes.enterTweetLink}>
+          <Container maxWidth="sm">
+            <Typography
+              component="h2"
+              variant="h4"
+              align="center"
+              color="textPrimary"
+              font-family="Raleway sans-serif !important"
+              gutterBottom
+            >
               Enter Tweet Link
             </Typography>
 
@@ -155,7 +193,9 @@ export default function Album() {
                 <Grid item>
                   <Row>
                     <input className={classes.input} type="text" />
-                    <button className={classes.button}>Archive</button>
+                    <button className={classes.button} onClick={redirect}>
+                      Archive
+                    </button>
                   </Row>
                   <Row>
                     <span className={classes.no_of_tweets_archived}>
