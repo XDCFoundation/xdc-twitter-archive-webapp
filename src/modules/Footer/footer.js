@@ -5,11 +5,13 @@ import styled from "styled-components";
 const Footer = styled.div`
   justify-content: center;
   display: flex;
-  margin-top: 15%;
+  padding-top: 15%;
+  background-color: #ffffff;
 `;
 const Poweredheading = styled.span`
   font-size: 13px;
   color: #09184b;
+  margin-bottom: 7%;
 `;
 const Xinfin = styled.span`
   color: #4d84fb;
@@ -20,6 +22,7 @@ const Year = styled.span`
   font-size: 13px;
   justify-content: center;
   display: flex;
+  margin-bottom: 106%;
 `;
 const Tweetdiv = styled.div`
   right: 162px;

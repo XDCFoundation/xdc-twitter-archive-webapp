@@ -1,7 +1,5 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
+
 import Paper from "@material-ui/core/Paper";
 
 import CardContent from "@material-ui/core/CardContent";
@@ -15,27 +13,14 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import TextField from "@material-ui/core/TextField";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import { shadows } from '@material-ui/system';
+import { shadows } from "@material-ui/system";
 import { Row, Column } from "simple-flexbox";
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       <Link color="inherit" href="">
-//         XinFin
-//       </Link>{" "}
-//       {" Â© "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
-    fontFamily: "Raleway sans-serif !important",
+    fontFamily: "Raleway, sans-serif !important",
   },
   heroButtons: {
     marginTop: theme.spacing(4),
@@ -43,31 +28,26 @@ const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
-
     outline: "none !important",
   },
-  
-  // card: {
-  //   height: "100%",
-  //   display: "flex",
-  //   boxShadow:"none !important",
-  //   flexDirection: "column",
-  //   boxShadow: 0 ,
-  //   outline: "none !important",
-  // },
+
   paper: {
     height: "100%",
     display: "flex",
-    boxShadow:"none !important",
+    boxShadow: "none !important",
     flexDirection: "column",
-    boxShadow: "none !important" ,
+    boxShadow: "none !important",
     outline: "none !important",
   },
   cardMedia: {
+    display: "flex",
+    justifyContent: "center",
     paddingTop: "56.25%", // 16:9
     alignItems: "center",
     width: "72%",
     boxShadow: "none",
+    cursor: "none",
+    marginLeft: "14%",
   },
   cardContent: {
     flexGrow: 1,
@@ -80,12 +60,15 @@ const useStyles = makeStyles((theme) => ({
   input: {
     border: "none",
     borderRadius: "4px",
-    background: "url(/images/search.svg) no-repeat 20px",
+    background: "url(/images/search.svg) no-repeat 15px",
     border: "solid 1px #aab1ff",
     width: "545px",
     height: "40px",
     marginRight: "7px",
     paddingLeft: "60px",
+    color: "#09184b",
+    marginTop: "-9px",
+    backgroundSize: "25px",
   },
   button: {
     backgroundColor: " #3366ff",
@@ -94,11 +77,63 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     fontSize: "15px",
     width: "115px",
+    marginTop: "-9px",
+    fontFamily: "Raleway,sans-serif !important",
+    fontWeight: "normal",
+    fontStretch: "normal",
+    fontStyle: "normal",
+    lineHeight: "1.17",
+    letterSpacing: "normal",
+    textAlign: "center",
   },
-  span: { marginLeft: "448px" },
-}));
+  span: {
+    marginTop: "16px",
+    position: "absolute",
+    fontFamily: "Raleway,sans-serif !important",
+    fontSize: "12px",
+    right: "426px",
+  },
+  no_of_tweets_archived: {
+    marginTop: "14px",
+    fontFamily: "Raleway,sans-serif !important",
+    position: "absolute",
 
-// const cards = [1, 2, 3, 4, 5, 6];
+    right: "585px",
+  },
+  main: { backgroundColor: "#ffffff" },
+  cardactionarea: {
+    display: "grid",
+  },
+  heading: {
+    fontSize: "18px",
+    fontFamily: "Raleway,sans-serif !important",
+    fontWeight: "500",
+    fontStretch: "normal",
+    fontStyle: "normal",
+    lineHeight: "1.17",
+    letterSpacing: "normal",
+    textAlign: "center",
+    color: "#09184b",
+    marginTop: "5%",
+    marginBottom: "4%",
+  },
+  subheading: {
+    fontSize: "15px",
+    fontFamily: "Raleway,sans-serif !important",
+  },
+  enterTweetLink: {
+    marginTop: "-25px",
+    fontSize: "28px",
+    fontFamily: "Raleway,sans-serif !important",
+    textAlign: "center",
+  },
+  maindiv: {
+    paddingTop: "8%",
+  },
+  container: {
+    paddingBottom: "4%",
+  },
+}));
 
 export default function Album() {
   const classes = useStyles();
@@ -107,25 +142,14 @@ export default function Album() {
     <React.Fragment>
       <CssBaseline />
 
-      <main background= "white">
+      <main className={classes.main}>
         <div className={classes.heroContent}>
-          <Container  maxWidth="sm">
-            <Typography
-              component="h2"
-              variant="h4"
-              align="center"
-              color="textPrimary"
-              font-family="Raleway sans-serif !important"
-              gutterBottom
-            >
+          <Container className={classes.container} maxWidth="sm">
+            {/* <div className={classes.maindiv}> */}
+            <Typography className={classes.enterTweetLink}>
               Enter Tweet Link
             </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph
-            ></Typography>
+
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
@@ -134,77 +158,81 @@ export default function Album() {
                     <button className={classes.button}>Archive</button>
                   </Row>
                   <Row>
+                    <span className={classes.no_of_tweets_archived}>
+                      20,000{" "}
+                    </span>
                     <span className={classes.span}>
-                      20,000 tweets have been archived
+                      tweets have been archived
                     </span>
                   </Row>
                 </Grid>
               </Grid>
             </div>
+            {/* </div> */}
           </Container>
         </div>
         <Container className={classes.cardGrid} fixed>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={4}>
               <Paper className={classes.paper}>
-                <CardActionArea>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="/images/Fake.svg"
-                    title="Paella dish"
-                  />
-
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Stop Fake News
-                    </Typography>
-                    <Typography>
-                      Help in making the world better-informed by stopping fake
-                      news
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
+                <div>
+                  <div>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image="/images/new.svg"
+                    />
+                  </div>
+                  <div>
+                    <CardContent className={classes.cardContent}>
+                      <Typography className={classes.heading}>
+                        Stop Fake News
+                      </Typography>
+                      <Typography className={classes.subheading}>
+                        Help in making the world better-informed by stopping
+                        fake news
+                      </Typography>
+                    </CardContent>
+                  </div>
+                </div>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
               <Paper className={classes.paper}>
-                <CardActionArea>
+                <div className={classes.cardactionarea}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="/images/newarchive.svg"
-                    title="Paella dish"
+                    image="/images/Group 195.svg"
                   />
 
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography className={classes.heading}>
                       Archive your Tweets
                     </Typography>
-                    <Typography>
+                    <Typography className={classes.subheading}>
                       Archive your tweets in our platform so that it stays
                       forever
                     </Typography>
                   </CardContent>
-                </CardActionArea>
+                </div>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
               <Paper className={classes.paper}>
-                <CardActionArea>
+                <div className={classes.cardactionarea}>
                   <CardMedia
                     className={classes.cardMedia}
                     image="images/Legalnews.svg"
-                    title="Paella dish"
                   />
 
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography className={classes.heading}>
                       Save links for legal actions
                     </Typography>
-                    <Typography>
+                    <Typography className={classes.subheading}>
                       Use your saved links for the future legal actions
                     </Typography>
                   </CardContent>
-                </CardActionArea>
+                </div>
               </Paper>
             </Grid>
           </Grid>

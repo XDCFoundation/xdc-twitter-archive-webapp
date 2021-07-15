@@ -1,66 +1,37 @@
 import styled, { css } from "styled-components";
 import { Row, Column } from "simple-flexbox";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+
 import React, { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 74px;
+  height: 66px;
   background-color: #191d43;
 `;
 const Image = styled.img`
   padding: 10px;
-  margin-left: 25px;
+  margin-left: 45px;
+  width: 57px;
+  margin-top: 3px;
 `;
 const Span = styled.span`
   color: #ffffff;
-  font-size: 21px;
-  margin-top: 25px;
-  font-weight: 400;
+  font-size: 19px;
+  margin-top: 21px;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif !important;
+  margin-left: -11px;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.19;
 `;
-const Input = styled.input`
-  background-color: #3d4270;
-  border-radius: 4px;
-  height: 41px;
 
-  width: 40%;
-  margin: 16px;
-  color: #ffffff;
-  border: none;
-`;
-const Button = styled.button`
-  color: #ffffff;
-  height: 41px;
-  padding: 10px;
-  margin: 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: #5760bc;
-  font-size: 18px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.28;
-`;
 export default function Headerconditional() {
-  const [inputValue, setInputValue] = useState("");
   return (
     <Container>
       <Row>
         <Image src="/images/tweetarchive.svg" />
         <Span>TweetArchive</Span>
-
-        {/* <Input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        <CopyToClipboard text={inputValue}>
-          <Button>Copy</Button>
-        </CopyToClipboard> */}
       </Row>
     </Container>
   );

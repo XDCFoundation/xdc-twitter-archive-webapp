@@ -13,6 +13,7 @@
     "history": "^4.9.0",
     "material-ui": "^0.20.2",
     "moment": "^2.24.0",
+    "nodemon": "^2.0.12",
     "react": "^16.9.0",
     "react-bootstrap": "^0.32.3",
     "react-copy-to-clipboard": "^5.0.3",
@@ -51,15 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://Himanshukushwaha@bitbucket.org/leewayhertz/xinfin-twitter-archive-webapp.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/leewayhertz/xinfin-twitter-archive-webapp#readme"
+  }
 }

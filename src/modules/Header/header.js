@@ -5,18 +5,22 @@ import React, { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 74px;
+  height: 66px;
   background-color: #191d43;
 `;
 const Image = styled.img`
   padding: 10px;
-  margin-left: 25px;
+  margin-left: 45px;
+  width: 57px;
+  margin-top: 3px;
 `;
 const Span = styled.span`
   color: #ffffff;
-  font-size: 21px;
-  margin-top: 25px;
-  font-weight: 400;
+  font-size: 19px;
+  margin-top: 21px;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif !important;
+  margin-left: -11px;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.19;
@@ -24,27 +28,30 @@ const Span = styled.span`
 const Input = styled.input`
   background-color: #3d4270;
   border-radius: 4px;
-  height: 41px;
-
-  width: 40%;
-  margin: 16px;
+  font-family: WorkSans-Roman !important;
   color: #ffffff;
   border: none;
+  height: 32px;
+  width: 40%;
+  margin-left: 33px;
+  margin-top: 18px;
 `;
 const Button = styled.button`
   color: #ffffff;
-  height: 41px;
+  height: 32px;
+  width: 114px;
   padding: 10px;
-  margin: 15px;
+  margin-top: 18px;
+  margin-left: 30px;
   border: none;
   border-radius: 4px;
   background-color: #5760bc;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: 0.28;
-  width: 100px;
+  font-family: "IBM Plex Sans", sans-serif !important;
 `;
 export default function HeaderComponent() {
   const [inputValue, setInputValue] = useState("");
@@ -52,7 +59,6 @@ export default function HeaderComponent() {
     <Container>
       <Row>
         <Image src="/images/tweetarchive.svg" />
-        {/* <Image src="/images/newtweetimage.svg" /> */}
         <Span>TweetArchive</Span>
 
         <Input
