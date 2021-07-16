@@ -11,27 +11,39 @@ const Footer = styled.div`
 const Poweredheading = styled.span`
   font-size: 13px;
   color: #09184b;
-  margin-bottom: 7%;
+  margin-bottom: 8%;
+
+  // font-family: "Raleway", sans-serif !important;
+
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: normal;
+  text-align: left;
+  color: #09184b;
 `;
 const Xinfin = styled.span`
   color: #4d84fb;
   font-size: 13px;
+  margin-top: -3px;
 `;
 const Year = styled.span`
   color: #09184b;
   font-size: 13px;
   justify-content: center;
   display: flex;
-  margin-bottom: 106%;
-`;
-const Tweetdiv = styled.div`
-  right: 162px;
-  position: absolute;
+  margin-bottom: 70%;
 
-  @media (max-width: 767px) {
-    right: 104px;
-    position: absolute;
-  }
+  // font-family: "Raleway", sans-serif !important;
+
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: normal;
+  text-align: center;
+  color: #09184b;
 `;
 
 export default function FooterComponent() {

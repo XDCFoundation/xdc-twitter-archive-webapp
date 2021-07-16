@@ -1,28 +1,15 @@
 import React, { useState, useEffect } from "react";
-
-import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
 import Paper from "@material-ui/core/Paper";
-
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
-import TextField from "@material-ui/core/TextField";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import { shadows } from "@material-ui/system";
 import { Row, Column } from "simple-flexbox";
 import MainComponent from "../modules/MainComponent/mainComponent";
 import { useHistory } from "react-router-dom";
-
-// import Utils from "../utility";
-// import TweetService from "../services/index"
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -34,19 +21,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
   },
   cardGrid: {
-    paddingTop: theme.spacing(8),
+    // paddingTop: theme.spacing(25),
+    paddingTop: "9%",
     paddingBottom: theme.spacing(8),
     outline: "none !important",
   },
 
-  // card: {
-  //   height: "100%",
-  //   display: "flex",
-  //   boxShadow:"none !important",
-  //   flexDirection: "column",
-  //   boxShadow: 0 ,
-  //   outline: "none !important",
-  // },
   paper: {
     height: "100%",
     display: "flex",
@@ -58,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   cardMedia: {
     display: "flex",
     justifyContent: "center",
-    paddingTop: "56.25%", // 16:9
+    paddingTop: "56.25%",
     alignItems: "center",
     width: "72%",
     boxShadow: "none",
@@ -121,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
   },
   heading: {
-    fontSize: "18px",
+    fontSize: "15px",
     fontFamily: "Raleway,sans-serif !important",
     fontWeight: "500",
     fontStretch: "normal",
@@ -134,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "4%",
   },
   subheading: {
-    fontSize: "15px",
+    fontSize: "13px",
     fontFamily: "Raleway,sans-serif !important",
   },
   enterTweetLink: {
@@ -149,21 +129,25 @@ const useStyles = makeStyles((theme) => ({
   container: {
     paddingBottom: "4%",
   },
+  Container: {
+    backgroundColor: "#ffffff",
+  },
+  main: {
+    backgroundColor: "#ffffff",
+  },
+  allImagesdiv: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  stopfakenews: {
+    marginTop: "-23px",
+    display: "flex",
+    justifyContent: "center",
+  },
 }));
 
 export default function Album() {
   const classes = useStyles();
-
-  // const [postTweet, setPostTweet] = useState([]);
-
-  // useEffect(async () => {
-  //   let urlPath = "?url=";
-  //   let [error, Tweet] = await Utils.parseResponse(
-  //     TweetService.getTweetByUrl(urlPath, {})
-  //   );
-  //   if (error || !Tweet) return;
-  //   setPostTweet(Tweet);
-  // }, []);
 
   const history = useHistory();
   const redirect = () => {
@@ -174,17 +158,10 @@ export default function Album() {
     <React.Fragment>
       <CssBaseline />
 
-      <main background="white">
+      <main className={classes.main}>
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography
-              component="h2"
-              variant="h4"
-              align="center"
-              color="textPrimary"
-              font-family="Raleway sans-serif !important"
-              gutterBottom
-            >
+          <Container className={classes.Container} maxWidth="sm">
+            <Typography className={classes.enterTweetLink}>
               Enter Tweet Link
             </Typography>
 
@@ -208,19 +185,15 @@ export default function Album() {
                 </Grid>
               </Grid>
             </div>
-            {/* </div> */}
           </Container>
         </div>
         <Container className={classes.cardGrid} fixed>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={4}>
               <Paper className={classes.paper}>
-                <div>
-                  <div>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image="/images/new.svg"
-                    />
+                <div className={classes.cardactionarea}>
+                  <div className={classes.stopfakenews}>
+                    <img src="/images/new.svg" />
                   </div>
                   <div>
                     <CardContent className={classes.cardContent}>
@@ -239,10 +212,9 @@ export default function Album() {
             <Grid item xs={12} sm={12} md={4}>
               <Paper className={classes.paper}>
                 <div className={classes.cardactionarea}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="/images/Group 195.svg"
-                  />
+                  <div className={classes.allImagesdiv}>
+                    <img src="/images/Group 195.svg" />
+                  </div>
 
                   <CardContent className={classes.cardContent}>
                     <Typography className={classes.heading}>
@@ -259,10 +231,9 @@ export default function Album() {
             <Grid item xs={12} sm={12} md={4}>
               <Paper className={classes.paper}>
                 <div className={classes.cardactionarea}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="images/Legalnews.svg"
-                  />
+                  <div className={classes.allImagesdiv}>
+                    <img src="/images/Legalnews.svg" />
+                  </div>
 
                   <CardContent className={classes.cardContent}>
                     <Typography className={classes.heading}>

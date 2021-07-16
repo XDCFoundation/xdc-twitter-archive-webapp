@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "simple-flexbox";
+
+import { makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
+import { deepOrange, deepPurple } from "@material-ui/core/colors";
+
 const MainContainer = styled.div`
   justify-content: center;
   display: flex;
@@ -8,51 +13,73 @@ const MainContainer = styled.div`
 const Container = styled.div`
   justify-content: center;
   display: flex;
-  width: 550px;
-  height: 500px;
-  background-color: #6e6e95;
-  padding: 0x 11px 33px 11px;
-  border-color: grey;
+  width: 514px;
+  height: 987px;
+  background-color: #ffffff;
+  border: solid 1px #aab1ff;
+  border-radius: 5px;
 `;
-const Headdiv = styled.div`
-  justify-content: center;
-  display: flex;
-  background-color: #6e6e95;
-  padding-left: 45px;
-  height: 20px;
-  color: white;
-`;
-const Head = styled.text`
-  justify-content: center;
 
-  display: flex;
-  font-weight: 800;
-  color: white;
+const Heading = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 15px;
+  border: solid 0.5px #e8e8e8;
+  padding-top: 2%;
+  padding-left: 7%;
+  width: 512px;
 `;
-const Data = styled.text`
+const Tweetdata = styled.span`
   justify-content: center;
   display: flex;
-  margin: 78px 0px 0px 15px;
-  color: white;
+  font-family: "Raleway", sans-serif !important;
 `;
-// Xinfin twitter
+const Name = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 15px;
+  margin-top: 4%;
+  margin-left: 1%;
+`;
+const Email = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 10px;
+  margin-top: -4%;
+  margin-left: 13%;
+`;
+const useStyles = makeStyles((theme) => ({
+  avatar: {
+    marginTop: "4%",
+    marginLeft: "4%",
+  },
+}));
 export default function MainComponent() {
+  const classes = useStyles();
   return (
     <MainContainer>
       <Container>
         <Column>
           <Row>
-            <Headdiv>
-              <Head>TWEET</Head>
-            </Headdiv>
+            <Heading> ARCHIVE TWEET</Heading>
+            <br />
+            <br />
           </Row>
+
           <Row>
-            <Data>
-              "I wish i could see my collaborator's as they are designing.
+            <Avatar className={classes.avatar}>H</Avatar>
+            <Name>Howards Pinsky</Name>
+          </Row>
+
+          <Email>@Pinsky</Email>
+
+          <br />
+          <Row>
+            <Tweetdata>
+              "I wish i could see my collaborator's as they are designing"
+              <br />
               <br />
               Well now you can. Live Cursors are available in XD 40- with the
               option to hide them, of Course
-            </Data>
+              <br />
+            </Tweetdata>
           </Row>
         </Column>
       </Container>
