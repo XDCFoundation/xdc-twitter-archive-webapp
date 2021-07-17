@@ -8,7 +8,7 @@ import Container from "@material-ui/core/Container";
 import { Row, Column } from "simple-flexbox";
 import MainComponent from "../modules/MainComponent/mainComponent";
 import { useHistory } from "react-router-dom";
-import TransitionAlerts from "../modules/popupbox.js";
+import Popup from "../modules/popupbox";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 
   paper: {
     display: "flex",
-
     flexDirection: "column",
     boxShadow: "none !important",
     outline: "none !important",
@@ -57,10 +56,18 @@ const useStyles = makeStyles((theme) => ({
     width: "545px",
     height: "40px",
     marginRight: "7px",
-    paddingLeft: "60px",
     color: "#09184b",
     marginTop: "-9px",
     backgroundSize: "25px",
+  },
+  "@media (min-width: 400px) and (max-width: 1080px)": {
+    input: {
+      display: "flex !important",
+      width: "201px",
+      height: "33px",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   },
   button: {
     backgroundColor: " #3366ff",
@@ -141,11 +148,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Album() {
+export default function Album(props) {
   const classes = useStyles();
-
-  const [open, setOpen] = React.useState(true);
-
   const history = useHistory();
   const redirect = () => {
     history.push("/MainComponent");
@@ -168,11 +172,8 @@ export default function Album() {
                       <input className={classes.input} type="text" />
                       <button
                         className={classes.button}
-                        onClick={redirect}
-                        // onClick={() => {
-                        //   setOpen(true);
-                        //   console.log("clicked");
-                        // }}
+                        // onClick={redirect}
+                        onClick={Popup}
                       >
                         Archive
                       </button>

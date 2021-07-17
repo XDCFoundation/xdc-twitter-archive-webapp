@@ -6,11 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
 
-const MainContainer = styled.div`
-  justify-content: center;
-  display: flex;
-  margin-bottom: 16%;
-`;
 const Container = styled.div`
   justify-content: center;
   display: flex;
@@ -27,7 +22,7 @@ const Heading = styled.span`
   border: solid 0.5px #e8e8e8;
   padding-top: 2%;
   padding-left: 7%;
-  width: 512px;
+  width: 514px;
 `;
 const Tweetdata = styled.span`
   justify-content: center;
@@ -111,28 +106,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function MainComponent() {
   const classes = useStyles();
+
   return (
     <>
-      {/* <div
-        style={{
-          flex: 0.5,
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            flex: 0.5,
-            justifyContent: "center",
-            alignItems: "center",
-            alignSelf: "center",
-          }}
-        >
-          <Popup />
-        </div>
-        <div style={{ flex: 0.1 }}>
-          <Popup />
-        </div> */}
       <Grid xs={12}>
         <Row>
           <Grid xs={8} className={classes.maingrid}>
