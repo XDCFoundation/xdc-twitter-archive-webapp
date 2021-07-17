@@ -1,42 +1,53 @@
 import React from "react";
-import styled from "styled-components";
-import { Row, Column } from "simple-flexbox";
-const PopUpcontainer = styled.div``;
+import { makeStyles } from "@material-ui/core/styles";
+import Alert from "@material-ui/lab/Alert";
+import IconButton from "@material-ui/core/IconButton";
+import Collapse from "@material-ui/core/Collapse";
+import Button from "@material-ui/core/Button";
+import CloseIcon from "@material-ui/icons/Close";
 
-const Span = styled.span`
-  // border-radius: 4px;
-  background-color: #10ca93;
-  font-size: 16px;
-  font-weight: 500;
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
-  line-height: 1.19;
-  letter-spacing: normal;
-  text-align: left;
-  color: #ffffff;
-`;
-const Image = styled.img`
-  width: 30px;
+export default function TransitionAlerts() {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(true);
 
-  margin-right: 9px;
-`;
-
-const Div = styled.div`
-  width: 287px;
-  height: 60px;
-  border-radius: 4px;
-  background-color: #10ca93;
-  padding: 17px;
-`;
-export default function Popup() {
   return (
-    <PopUpcontainer>
-      <Row>
-        <Div>
-          <Image src="/images/tickicon.svg" />
-
-          <Span>Your tweet has been archived</Span>
-        </Div>
-      </Row>
-    </PopUpcontainer>
+    <div className={classes.root}>
+      <Collapse in={open}>
+        <Alert
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+        >
+          Close me!
+        </Alert>
+      </Collapse>
+      <Button
+        disabled={open}
+        variant="outlined"
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        Re-open
+      </Button>
+    </div>
   );
 }

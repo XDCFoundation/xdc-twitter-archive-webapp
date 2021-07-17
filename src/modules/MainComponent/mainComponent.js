@@ -4,17 +4,17 @@ import { Row, Column } from "simple-flexbox";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
-import { deepOrange, deepPurple } from "@material-ui/core/colors";
 
 const MainContainer = styled.div`
   justify-content: center;
   display: flex;
+  margin-bottom: 16%;
 `;
 const Container = styled.div`
   justify-content: center;
   display: flex;
   width: 514px;
-  height: 987px;
+  height: 578px;
   background-color: #ffffff;
   border: solid 1px #aab1ff;
   border-radius: 5px;
@@ -32,6 +32,8 @@ const Tweetdata = styled.span`
   justify-content: center;
   display: flex;
   font-family: "Raleway", sans-serif !important;
+  padding: 7%;
+  height: 400px;
 `;
 const Name = styled.span`
   font-family: "Raleway", sans-serif !important;
@@ -45,6 +47,51 @@ const Email = styled.span`
   margin-top: -4%;
   margin-left: 13%;
 `;
+const Time = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const QuoteTweet = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const QuoteTweetcount = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const Likes = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const Date = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const Twitterwebapp = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const Retweets = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const Retweetscount = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const Likescount = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 13px;
+`;
+const Like = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  font-size: 10px;
+`;
+const Details = styled.div`
+  border: solid 0.5px #e8e8e8;
+  width: 514px;
+`;
+
 const useStyles = makeStyles((theme) => ({
   avatar: {
     marginTop: "4%",
@@ -79,7 +126,23 @@ export default function MainComponent() {
               Well now you can. Live Cursors are available in XD 40- with the
               option to hide them, of Course
               <br />
+              <br />
             </Tweetdata>
+          </Row>
+          <Row>
+            <Details>
+              <Time> &nbsp;&nbsp;12:28 AM&nbsp;.</Time>
+              <Date>&nbsp;May 12,2021&nbsp;.</Date>
+              <Twitterwebapp>&nbsp;Twitter Web App&nbsp;.</Twitterwebapp>
+            </Details>
+          </Row>
+          <Row>
+            <Retweetscount> &nbsp;&nbsp; 13&nbsp;</Retweetscount>
+            <Retweets>Retweets&emsp;</Retweets>
+            <QuoteTweetcount> &nbsp; 3&nbsp;</QuoteTweetcount>
+            <QuoteTweet>Quote Tweets&emsp;</QuoteTweet>
+            <Likescount> &nbsp; 139 &nbsp;</Likescount>
+            <Likes>Likes&emsp;</Likes>
           </Row>
         </Column>
       </Container>

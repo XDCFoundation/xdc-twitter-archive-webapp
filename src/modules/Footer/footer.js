@@ -5,16 +5,13 @@ import styled from "styled-components";
 const Footer = styled.div`
   justify-content: center;
   display: flex;
-  padding-top: 15%;
   background-color: #ffffff;
 `;
 const Poweredheading = styled.span`
   font-size: 13px;
   color: #09184b;
   margin-bottom: 8%;
-
   // font-family: "Raleway", sans-serif !important;
-
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -34,9 +31,7 @@ const Year = styled.span`
   justify-content: center;
   display: flex;
   margin-bottom: 70%;
-
   // font-family: "Raleway", sans-serif !important;
-
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

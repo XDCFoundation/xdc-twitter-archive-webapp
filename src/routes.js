@@ -10,7 +10,7 @@ import BaseComponent from "./modules/baseComponent";
 import Header from "./modules/Header";
 import CardComponent from "./modules/MainComponent";
 import Link from "./modules/TweetlinkComponent";
-
+import Popup from "./modules/popupbox";
 import Demo from "./Demo";
 
 class Routes extends BaseComponent {
@@ -27,7 +27,7 @@ class Routes extends BaseComponent {
             <Route exact path={"/maincomponent"} component={CardComponent} />
             <Route exact path={"/tweetlink"} component={Link} />
             <Route exact path={"/"} component={Demo} />
-            {/* <Route exact path={"/popup"} component={}/> */}
+            {/* <Route exact path={"/popup"} component={Popup} /> */}
             <Redirect exact from="*" to="/" />
           </Switch>
         </Router>

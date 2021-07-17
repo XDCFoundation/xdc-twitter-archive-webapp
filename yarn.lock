@@ -1138,7 +1138,7 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@material-ui/core@latest":
+"@material-ui/core@^4.12.1":
   "integrity" "sha512-C6hYsjkWCTfBx9FaqxhCZCITBagh7fyCKFtHyvO3tTOcBw6NJaktdhNZ2n82jQdQdgfFvg6OOxi7OOzsAdAcBQ=="
   "resolved" "https://registry.npmjs.org/@material-ui/core/-/core-4.12.1.tgz"
   "version" "4.12.1"
