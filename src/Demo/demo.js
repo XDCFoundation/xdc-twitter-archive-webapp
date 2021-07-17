@@ -8,7 +8,7 @@ import Container from "@material-ui/core/Container";
 import { Row, Column } from "simple-flexbox";
 import MainComponent from "../modules/MainComponent/mainComponent";
 import { useHistory } from "react-router-dom";
-import Popup from "./modules/popupbox";
+import TransitionAlerts from "../modules/popupbox.js";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: "6%",
     paddingBottom: "11%",
-    // outline: "none !important",
   },
 
   paper: {
@@ -145,6 +144,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Album() {
   const classes = useStyles();
 
+  const [open, setOpen] = React.useState(true);
+
   const history = useHistory();
   const redirect = () => {
     history.push("/MainComponent");
@@ -165,7 +166,14 @@ export default function Album() {
                   <Grid item>
                     <Row>
                       <input className={classes.input} type="text" />
-                      <button className={classes.button} onClick={redirect}>
+                      <button
+                        className={classes.button}
+                        onClick={redirect}
+                        // onClick={() => {
+                        //   setOpen(true);
+                        //   console.log("clicked");
+                        // }}
+                      >
                         Archive
                       </button>
                     </Row>

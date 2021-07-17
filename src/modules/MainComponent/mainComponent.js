@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "simple-flexbox";
-
+import Popup from "../popupbox";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
+import Grid from "@material-ui/core/Grid";
 
 const MainContainer = styled.div`
   justify-content: center;
@@ -97,55 +98,97 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "4%",
     marginLeft: "4%",
   },
+  maingrid: {
+    display: "flex",
+    justifyContent: "flex-end",
+    paddingBottom: "12%",
+  },
+  popupgrid: {
+    display: "flex",
+    justifyContent: "flex-end",
+    padding: "16px",
+  },
 }));
 export default function MainComponent() {
   const classes = useStyles();
   return (
-    <MainContainer>
-      <Container>
-        <Column>
-          <Row>
-            <Heading> ARCHIVE TWEET</Heading>
-            <br />
-            <br />
-          </Row>
+    <>
+      {/* <div
+        style={{
+          flex: 0.5,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            flex: 0.5,
+            justifyContent: "center",
+            alignItems: "center",
+            alignSelf: "center",
+          }}
+        >
+          <Popup />
+        </div>
+        <div style={{ flex: 0.1 }}>
+          <Popup />
+        </div> */}
+      <Grid xs={12}>
+        <Row>
+          <Grid xs={8} className={classes.maingrid}>
+            <Container>
+              <Column>
+                <Row>
+                  <Heading> ARCHIVE TWEET</Heading>
+                  <br />
+                  <br />
+                </Row>
 
-          <Row>
-            <Avatar className={classes.avatar}>H</Avatar>
-            <Name>Howards Pinsky</Name>
-          </Row>
+                <Row>
+                  <Avatar className={classes.avatar}>H</Avatar>
+                  <Name>Howards Pinsky</Name>
+                </Row>
 
-          <Email>@Pinsky</Email>
+                <Email>@Pinsky</Email>
 
-          <br />
-          <Row>
-            <Tweetdata>
-              "I wish i could see my collaborator's as they are designing"
-              <br />
-              <br />
-              Well now you can. Live Cursors are available in XD 40- with the
-              option to hide them, of Course
-              <br />
-              <br />
-            </Tweetdata>
-          </Row>
-          <Row>
-            <Details>
-              <Time> &nbsp;&nbsp;12:28 AM&nbsp;.</Time>
-              <Date>&nbsp;May 12,2021&nbsp;.</Date>
-              <Twitterwebapp>&nbsp;Twitter Web App&nbsp;.</Twitterwebapp>
-            </Details>
-          </Row>
-          <Row>
-            <Retweetscount> &nbsp;&nbsp; 13&nbsp;</Retweetscount>
-            <Retweets>Retweets&emsp;</Retweets>
-            <QuoteTweetcount> &nbsp; 3&nbsp;</QuoteTweetcount>
-            <QuoteTweet>Quote Tweets&emsp;</QuoteTweet>
-            <Likescount> &nbsp; 139 &nbsp;</Likescount>
-            <Likes>Likes&emsp;</Likes>
-          </Row>
-        </Column>
-      </Container>
-    </MainContainer>
+                <br />
+                <Row>
+                  <Tweetdata>
+                    "I wish i could see my collaborator's as they are designing"
+                    <br />
+                    <br />
+                    Well now you can. Live Cursors are available in XD 40- with
+                    the option to hide them, of Course
+                    <br />
+                    <br />
+                  </Tweetdata>
+                </Row>
+                <Row>
+                  <Details>
+                    <Time> &nbsp;&nbsp;&nbsp;&nbsp;12:28 AM&emsp;.</Time>
+                    <Date>&nbsp;May 12,2021&emsp;.</Date>
+                    <Twitterwebapp>&nbsp;Twitter Web App&nbsp;.</Twitterwebapp>
+                  </Details>
+                </Row>
+                <Row>
+                  <Retweetscount>
+                    {" "}
+                    &nbsp;&nbsp;&nbsp;&nbsp; 13&emsp;
+                  </Retweetscount>
+                  <Retweets>Retweets&emsp;</Retweets>
+                  <QuoteTweetcount> &nbsp; 3&nbsp;</QuoteTweetcount>
+                  <QuoteTweet>Quote Tweets&emsp;</QuoteTweet>
+                  <Likescount> &nbsp; 139 &nbsp;</Likescount>
+                  <Likes>Likes&emsp;</Likes>
+                </Row>
+              </Column>
+            </Container>
+          </Grid>
+          <Grid xs={4} className={classes.popupgrid}>
+            <Popup />
+          </Grid>
+        </Row>
+      </Grid>
+    </>
   );
 }
