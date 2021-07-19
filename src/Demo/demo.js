@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#09184b",
     marginTop: "-9px",
     backgroundSize: "25px",
+    paddingLeft: "8%",
   },
   "@media (min-width: 400px) and (max-width: 1080px)": {
     input: {
@@ -172,8 +173,8 @@ export default function Album(props) {
                       <input className={classes.input} type="text" />
                       <button
                         className={classes.button}
-                        // onClick={redirect}
-                        onClick={Popup}
+                        onClick={redirect}
+                        // onClick={Popup}
                       >
                         Archive
                       </button>

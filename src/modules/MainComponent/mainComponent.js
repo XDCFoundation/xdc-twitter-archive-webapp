@@ -161,7 +161,7 @@ export default function MainComponent() {
             </Container>
           </Grid>
           <Grid xs={4} className={classes.popupgrid}>
-            <Popup />
+            {/* <Popup /> */}
           </Grid>
         </Row>
       </Grid>
