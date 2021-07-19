@@ -11,7 +11,6 @@ export default class CardComponent extends BaseComponent {
       <>
         <Column>
           <HeaderComponent />
-
           <MainComponent />
           <FooterComponent />
         </Column>
