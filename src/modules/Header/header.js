@@ -5,12 +5,18 @@ import React, { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 66px;
+  height: 100%;
   background-color: #191d43;
 `;
 const Image = styled.img`
   padding: 10px;
   margin-left: 45px;
+  width: 57px;
+  margin-top: 3px;
+`;
+const MobileImage = styled.img`
+  padding: 10px;
+  margin-left: 12px;
   width: 57px;
   margin-top: 3px;
 `;
@@ -43,7 +49,7 @@ const Button = styled.button`
   width: 96px;
   padding: 10px;
   margin-top: 18px;
-  margin-left: 30px;
+  margin-left: 10px;
   border: none;
   border-radius: 4px;
   background-color: #5760bc;
@@ -54,24 +60,68 @@ const Button = styled.button`
   line-height: 0.28;
   font-family: "IBM Plex Sans", sans-serif !important;
 `;
+const DesktopView = styled.div`
+@media (min-width: 0px) and (max-width: 767px) {
+ display: none;
+}
+@media (min-width: 768px) {
+  display: visible;
+}
+`;
+
+
+const MobileView = styled.div`
+@media (min-width: 0px) and (max-width: 767px) {
+  display: visible;
+}
+@media (min-width: 768px) {
+  display: none;
+}
+`;
 export default function HeaderComponent() {
   const [inputValue, setInputValue] = useState("");
   return (
-    <Container>
-      <Row>
-        <Image src="/images/tweetarchive.svg" />
-        <Span>TweetArchive</Span>
+    <>
+      <DesktopView>
+        <Container>
+          <Row>
+            <Image src="/images/tweetarchive.svg" />
+            <Span>TweetArchive</Span>
 
-        <Input
-          type="text"
-          readOnly={true}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        <CopyToClipboard text={inputValue}>
-          <Button>Copy</Button>
-        </CopyToClipboard>
-      </Row>
-    </Container>
+            <Input
+              type="text"
+              readOnly={true}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <CopyToClipboard text={inputValue}>
+              <Button>Copy</Button>
+            </CopyToClipboard>
+          </Row>
+        </Container>
+      </DesktopView>
+
+      <MobileView>
+        <Container>
+          <Row>
+            <MobileImage src="/images/tweetarchive.svg" />
+            <Span>TweetArchive</Span>
+          </Row>
+          <Column style={{ paddingBottom: '20px' }}>
+            <Row>
+              <Input
+                type="text"
+                readOnly={true}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+              />
+              <CopyToClipboard text={inputValue}>
+                <Button>Copy</Button>
+              </CopyToClipboard>
+            </Row>
+          </Column>
+        </Container>
+      </MobileView>
+    </>
   );
 }
