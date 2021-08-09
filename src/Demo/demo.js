@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled, { css } from "styled-components";
 import Paper from "@material-ui/core/Paper";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
@@ -7,8 +8,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Row, Column } from "simple-flexbox";
 import MainComponent from "../modules/MainComponent/mainComponent";
-import { useHistory } from "react-router-dom";
+
 import Popup from "../modules/popupbox";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -61,15 +64,15 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "25px",
     paddingLeft: "8%",
   },
-  "@media (min-width: 400px) and (max-width: 1080px)": {
-    input: {
-      display: "flex !important",
-      width: "201px",
-      height: "33px",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-  },
+  // "@media (min-width: 400px) and (max-width: 1080px)": {
+  //   input: {
+  //     display: "flex !important",
+  //     width: "201px",
+  //     height: "33px",
+  //     justifyContent: "center",
+  //     alignItems: "center",
+  //   },
+  // },
   button: {
     backgroundColor: " #3366ff",
     borderRadius: "4px",
@@ -148,18 +151,41 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
+const TextView = styled.div`
+@media (min-width: 0px) and (max-width: 767px) {
+  display: none;
+}
+@media (min-width: 768px) {
+  display: visible;
+}
+`;
+const MobileView = styled.div`
+@media (min-width: 0px) and (max-width: 767px) {
+  margin-top: 10%;
+}
+`;
 
-export default function Album(props) {
+export default function Album() {
   const classes = useStyles();
   const history = useHistory();
+  const [tweet, setTweet] = useState("");
+
   const redirect = () => {
-    history.push("/MainComponent");
+    var urlRegex = /^http[s]?:\/\/(www\.)?(.*)?\/?(.)*/
+    if (urlRegex.test(tweet) && tweet.includes('twitter.com/') && tweet.includes('status/')) {
+      history.push("/archive?url=" + tweet);
+    }
+    else {
+      alert("Enter Correct URL")
+    }
   };
 
   return (
     <div>
       <React.Fragment>
         <main className={classes.main}>
+
+        <TextView>
           <div className={classes.heroContent}>
             <Container className={classes.Container} maxWidth="sm">
               <Typography className={classes.enterTweetLink}>
@@ -170,12 +196,8 @@ export default function Album(props) {
                 <Grid container spacing={2} justify="center">
                   <Grid item>
                     <Row>
-                      <input className={classes.input} type="text" />
-                      <button
-                        className={classes.button}
-                        onClick={redirect}
-                        // onClick={Popup}
-                      >
+                      <input className={classes.input} type="text" onChange={e => setTweet(e.target.value)} />
+                      <button className={classes.button} onClick={redirect}>
                         Archive
                       </button>
                     </Row>
@@ -195,6 +217,9 @@ export default function Album(props) {
               </div>
             </Container>
           </div>
+          </TextView>
+
+        <MobileView>
           <Container className={classes.cardGrid} fixed>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={12} md={4}>
@@ -256,6 +281,9 @@ export default function Album(props) {
               </Grid>
             </Grid>
           </Container>
+         
+          </MobileView>
+         
         </main>
       </React.Fragment>
     </div>
