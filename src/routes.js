@@ -22,10 +22,10 @@ class Routes extends BaseComponent {
         <Router history={history}>
           <Switch>
             {/* <Route exact path={"/"} component={Login} /> */}
-            <Route exact path={"/sign-up"} component={SignUp} />
-            <Route exact path={"/header"} component={Header} />
-            <Route exact path={"/maincomponent"} component={CardComponent} />
-            <Route exact path={"/tweetlink"} component={Link} />
+            {/* <Route exact path={"/sign-up"} component={SignUp} />
+            <Route exact path={"/header"} component={Header} /> */}
+            <Route exact path={"/archive"} component={CardComponent} />
+            {/* <Route exact path={"/tweetlink"} component={Link} /> */}
             <Route exact path={"/"} component={Demo} />
             {/* <Route exact path={"/popup"} component={Popup} /> */}
             <Redirect exact from="*" to="/" />

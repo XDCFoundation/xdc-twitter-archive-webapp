@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import styled from "styled-components";
 import { Row, Column } from "simple-flexbox";
 import Popup from "../popupbox";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
+import axios from "axios";
+import { useLocation, useParams } from 'react-router-dom';
+import '../../assets/styles/custom.css';
 
 const Container = styled.div`
   justify-content: center;
@@ -107,34 +110,89 @@ const useStyles = makeStyles((theme) => ({
 export default function MainComponent() {
   const classes = useStyles();
 
+  const location = useLocation()
+  const url = location.search.slice(5)
+
+
+  // const [count, setCount] = useState({});
+  // alert(JSON.stringify(location.state))
+  // useEffect(() => {
+  //   fetchCount();
+  // }, []);
+  // const fetchCount = () => {
+  //   axios({
+  //     url:  "https://ki3l56sayb.execute-api.us-east-2.amazonaws.com/xinfin-twitter-gettweetsfromtweeturl?url=https://twitter.com/MichalStein2/status/1404839937908875264",
+      // method: "POST",
+      // mode: 'no-cors',
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   "Access-Control-Allow-Origin": process.env.REACT_APP_API_URL,
+      //   "Access-Control-Request-Headers": 'Content-Type, Authorization',
+      //   "Content-Security-Policy": 'frame-ancestors self'
+      // }
+  //   })
+
+  //     .then((res) => {
+  //       console.log("result-------", res)
+  //       setCount(res);
+
+  //     })
+  //     .catch((err) => {
+  //       console.log("err-------", err);
+  //     });
+  // };
+
+  const [count, setCount] = useState({});
+  useEffect(() => {
+    fetchCount();
+  }, []);
+  const fetchCount = () => {
+    axios
+      .get(
+        "https://ki3l56sayb.execute-api.us-east-2.amazonaws.com/xinfin-twitter-gettweetsfromtweeturl?url="+url
+        )
+      .then((res) => {
+        setCount(res.data.responseData.responseData);
+        console.log("tweets----", res.data.responseData.responseData)
+        console.log('link---',url)
+      })
+      .catch((err) => {
+        console.log("error-----",err);
+      });
+  };
+
+let value=count?.data
+// let handler = value?.length
+// console.log('hand---',handler)
+
   return (
     <>
       <Grid xs={12}>
         <Row>
           <Grid xs={8} className={classes.maingrid}>
             <Container>
-              <Column>
+            {/* <div className="loader"></div> */}
+            <Column>
                 <Row>
                   <Heading> ARCHIVE TWEET</Heading>
-                  <br />
+                  <br /> 
                   <br />
                 </Row>
 
                 <Row>
                   <Avatar className={classes.avatar}>H</Avatar>
-                  <Name>Howards Pinsky</Name>
+                  <Name>{value?.name}</Name>
                 </Row>
 
-                <Email>@Pinsky</Email>
+                <Email>@{value?.name}</Email>
 
                 <br />
                 <Row>
                   <Tweetdata>
-                    "I wish i could see my collaborator's as they are designing"
+                   {/* {value} */}
                     <br />
                     <br />
-                    Well now you can. Live Cursors are available in XD 40- with
-                    the option to hide them, of Course
+                   {value?.text}
                     <br />
                     <br />
                   </Tweetdata>
@@ -158,6 +216,7 @@ export default function MainComponent() {
                   <Likes>Likes&emsp;</Likes>
                 </Row>
               </Column>
+            
             </Container>
           </Grid>
           <Grid xs={4} className={classes.popupgrid}>
