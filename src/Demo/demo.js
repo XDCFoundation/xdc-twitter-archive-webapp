@@ -201,7 +201,7 @@ export default function Album(props) {
                 <Paper className={classes.paper}>
                   <div className={classes.cardactionarea}>
                     <div className={classes.stopfakenews}>
-                      <img src="/images/new.svg" />
+                      <img src="/images/fakenews.svg" />
                     </div>
                     <div>
                       <CardContent className={classes.cardContent}>
