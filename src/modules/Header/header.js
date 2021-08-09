@@ -5,18 +5,28 @@ import React, { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
-  height: 74px;
+  height: 100%;
   background-color: #191d43;
 `;
 const Image = styled.img`
   padding: 10px;
-  margin-left: 25px;
+  margin-left: 45px;
+  width: 57px;
+  margin-top: 3px;
+`;
+const MobileImage = styled.img`
+  padding: 10px;
+  margin-left: 12px;
+  width: 57px;
+  margin-top: 3px;
 `;
 const Span = styled.span`
   color: #ffffff;
-  font-size: 21px;
-  margin-top: 25px;
-  font-weight: 400;
+  font-size: 19px;
+  margin-top: 21px;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif !important;
+  margin-left: -11px;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.19;
@@ -24,45 +34,94 @@ const Span = styled.span`
 const Input = styled.input`
   background-color: #3d4270;
   border-radius: 4px;
-  height: 41px;
-
-  width: 40%;
-  margin: 16px;
+  font-family: WorkSans-Roman !important;
   color: #ffffff;
   border: none;
+  height: 32px;
+  width: 40%;
+  margin-left: 33px;
+  margin-top: 18px;
 `;
 const Button = styled.button`
   color: #ffffff;
-  height: 41px;
+  height: 32px;
+
+  width: 96px;
   padding: 10px;
-  margin: 16px;
+  margin-top: 18px;
+  margin-left: 10px;
   border: none;
   border-radius: 4px;
   background-color: #5760bc;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   font-stretch: normal;
   font-style: normal;
   line-height: 0.28;
+  font-family: "IBM Plex Sans", sans-serif !important;
+`;
+const DesktopView = styled.div`
+@media (min-width: 0px) and (max-width: 767px) {
+ display: none;
+}
+@media (min-width: 768px) {
+  display: visible;
+}
+`;
+
+
+const MobileView = styled.div`
+@media (min-width: 0px) and (max-width: 767px) {
+  display: visible;
+}
+@media (min-width: 768px) {
+  display: none;
+}
 `;
 export default function HeaderComponent(props) {
   const [inputValue, setInputValue] = useState("");
   return (
-    <Container>
-      <Row>
-        <Image src="/images/tweetarchive.svg" />
-        <Span>TweetArchive</Span>
+    <>
+      <DesktopView>
+        <Container>
+          <Row>
+            <Image src="/images/tweetarchive.svg" />
+            <Span>TweetArchive</Span>
 
-       {props.visible && <Input
-          type="text"
-          value={props.link}
-          onChange={(e) => setInputValue(e.target.value)}
-        />}
-        {props.visible && <CopyToClipboard text={inputValue}>
-          <Button>Copy</Button>
-        </CopyToClipboard>}
-      
-      </Row>
-    </Container>
+            <Input
+              type="text"
+              readOnly={true}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <CopyToClipboard text={inputValue}>
+              <Button>Copy</Button>
+            </CopyToClipboard>
+          </Row>
+        </Container>
+      </DesktopView>
+
+      <MobileView>
+        <Container>
+          <Row>
+            <MobileImage src="/images/tweetarchive.svg" />
+            <Span>TweetArchive</Span>
+          </Row>
+          <Column style={{ paddingBottom: '20px' }}>
+            <Row>
+              <Input
+                type="text"
+                readOnly={true}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+              />
+              <CopyToClipboard text={inputValue}>
+                <Button>Copy</Button>
+              </CopyToClipboard>
+            </Row>
+          </Column>
+        </Container>
+      </MobileView>
+    </>
   );
 }

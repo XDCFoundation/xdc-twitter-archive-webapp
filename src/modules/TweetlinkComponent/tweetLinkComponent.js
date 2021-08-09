@@ -28,8 +28,8 @@ const Input = styled.input`
   border-radius: 4px;
   margin-left: 23%;
   margin-top: 3%;
+  background: url(/images/search.svg) no-repeat 20px;
 
-  background: url(/images/search.svg) no-repeat left center;
   border: solid 1px #aab1ff;
   padding-left: 50px;
   justify-content: center;
@@ -81,8 +81,8 @@ const Span = styled.span`
   font-size: 14px;
   margin-right: 144px;
 
-  // @media (max-width: 767px) {
-  //   margin-left: 58%;
+  // @media (max-width: 1492px) {
+  //   margin-right: 199px;
   // }
   @media (max-width: 980px) {
     font-size: 14px;
@@ -106,14 +106,10 @@ const Heading = styled.span`
   font-size: 18px;
   font-weight: 500;
   font-stretch: normal;
- line-height: 1.17;
- text-align: left;
   color: #09184b;
- justify-content:center
-  margin-bottom: 14px;
-  
-  margin-top: -50px;
-  margin-left: 90px;
+  text-align: center;
+  margin-top: -19%;
+  line-height: 3.17;
 `;
 const SubHeading = styled.span`
   font-size: 14px;
@@ -122,10 +118,8 @@ const SubHeading = styled.span`
   font-style: normal;
   line-height: 1.57;
   letter-spacing: normal;
-  text-align: center;
   color: #09184b;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 `;
 const Container_one = styled.div``;
 const Container_two = styled.div`
@@ -146,6 +140,7 @@ const Rowcontainer = styled.div`
     align-items: center;
   }
 `;
+const Subheadingdiv = styled.div``;
 
 export default function TweetLink(props) {
   return (
@@ -178,8 +173,9 @@ export default function TweetLink(props) {
               <Rowcontainer>
                 <Container_one>
                   <Column>
-                    <Card src="images/fakenews.svg" />
+                    <Card src="/images/Fake.svg" />
                     <Heading>Stop Fake News</Heading>
+
                     <SubHeading>
                       Help in making the world better-informed by stopping fake
                       news
@@ -188,7 +184,7 @@ export default function TweetLink(props) {
                 </Container_one>
                 <Container_two>
                   <Column>
-                    <Card src="/images/archivetweet.svg" />
+                    <Card src="/images/newarchive.svg" />
                     <Heading>Archive your Tweets</Heading>
                     <SubHeading>
                       Archive your tweets in our platform so that it stays
@@ -198,7 +194,7 @@ export default function TweetLink(props) {
                 </Container_two>
                 <Container_three>
                   <Column>
-                    <Card src="images/legalactions.svg" />
+                    <Card src="/images/Legalnews.svg" />
 
                     <Heading>Save links for legal actions</Heading>
                     <SubHeading>
@@ -209,42 +205,12 @@ export default function TweetLink(props) {
               </Rowcontainer>
             </Row>
           </Cardcontainer>
-          <Footer>
-            <Row>
-              <Column>
-                <Row>
-                  <Poweredheading>Powered By &nbsp; </Poweredheading>
-                  <Xinfin>Xinfin</Xinfin>
-                </Row>
-
-                <Year> &copy; 2021</Year>
-              </Column>
-            </Row>
-          </Footer>
         </Column>
       </Container>
     </>
   );
 }
-const Footer = styled.div`
-  justify-content: center;
-  display: flex;
-  margin-top: 20%;
-`;
-const Poweredheading = styled.span`
-  font-size: 13px;
-  color: #09184b;
-`;
-const Xinfin = styled.span`
-  color: #4d84fb;
-  font-size: 13px;
-`;
-const Year = styled.span`
-  color: #09184b;
-  font-size: 13px;
-  justify-content: center;
-  display: flex;
-`;
+
 const Tweetdiv = styled.div`
   right: 162px;
   position: absolute;

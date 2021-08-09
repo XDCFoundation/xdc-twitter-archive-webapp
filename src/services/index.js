@@ -4,4 +4,5 @@
 //export all services from index file -
 
 // export * from './user'
-export {default as TweetLinkService} from "./tweetLinkService";
+
+export {default as TweetService } from "./tweetServices"

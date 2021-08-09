@@ -1,9 +1,9 @@
-import {httpConstants} from "../constants";
+import { httpConstants } from "../images/constants";
 
 export const httpService = (method, headers, data, url) => {
     const requestOptions = {
         method: method,
-        headers: headers || {'Content-Type': 'application/json'}
+        headers: headers || { 'Content-Type': 'application/json' }
     };
 
     if (method !== httpConstants.METHOD_TYPE.GET)
@@ -45,7 +45,7 @@ export const httpService = (method, headers, data, url) => {
 export const httpGetService = (method, headers, data, url) => {
     const requestOptions = {
         method: method,
-        headers: headers || {'Content-Type': 'application/json'}
+        headers: headers || { 'Content-Type': 'application/json' }
     };
 
     if (method !== httpConstants.METHOD_TYPE.GET)
