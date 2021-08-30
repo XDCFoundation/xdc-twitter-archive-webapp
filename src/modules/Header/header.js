@@ -78,8 +78,12 @@ const MobileView = styled.div`
   display: none;
 }
 `;
-export default function HeaderComponent() {
+export default function HeaderComponent(props) {
   const [inputValue, setInputValue] = useState("");
+  // console.log('props--',props?.id)
+  // console.log('props--',props?.headerLink)
+  // console.log('props--',props?.count)
+  
   return (
     <>
       <DesktopView>
@@ -91,10 +95,12 @@ export default function HeaderComponent() {
             <Input
               type="text"
               readOnly={true}
-              value={inputValue}
+              value={props?.count?.length > 0 ? props?.headerLink : ''}
+              // value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <CopyToClipboard text={inputValue}>
+            <CopyToClipboard text={props?.count?.length > 0? props?.headerLink : ''}>
+              {/* text={`https://`+props?.tweeturl} */}
               <Button>Copy</Button>
             </CopyToClipboard>
           </Row>
@@ -109,15 +115,17 @@ export default function HeaderComponent() {
           </Row>
           <Column style={{ paddingBottom: '20px' }}>
             <Row>
-              <Input
-                type="text"
-                readOnly={true}
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-              />
-              <CopyToClipboard text={inputValue}>
-                <Button>Copy</Button>
-              </CopyToClipboard>
+            <Input
+              type="text"
+              readOnly={true}
+              value={props?.count?.length > 0 ? props?.headerLink : ''}
+              // value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <CopyToClipboard text={props?.count?.length > 0 ? props?.headerLink : ''}>
+              {/* text={`https://`+props?.tweeturl} */}
+              <Button>Copy</Button>
+            </CopyToClipboard>
             </Row>
           </Column>
         </Container>

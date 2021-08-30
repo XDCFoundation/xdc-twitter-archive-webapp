@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Row, Column } from "simple-flexbox";
 import Popup from "../popupbox";
@@ -8,43 +8,73 @@ import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 import { useLocation, useParams } from 'react-router-dom';
 import '../../assets/styles/custom.css';
+import Toast from './Toast';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { nullLiteralTypeAnnotation } from "@babel/types";
+import moment from 'moment';
 
 const Container = styled.div`
-  justify-content: center;
-  display: flex;
-  width: 514px;
-  height: 578px;
+  // justify-content: center;
+  // display: flex;
+  width: 50%;
+  height: 100%;
   background-color: #ffffff;
-  border: solid 1px #aab1ff;
+  border: solid 0.5px #D3D3D3;
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  @media (min-width: 0px) and (max-width: 767px) {
+    width: 100%;
+    padding-left: 20px
+  }
 `;
 
 const Heading = styled.span`
   font-family: "Raleway", sans-serif !important;
   font-size: 15px;
-  border: solid 0.5px #e8e8e8;
-  padding-top: 2%;
-  padding-left: 7%;
-  width: 514px;
+  padding-top: 3%;
+  padding-left: 4%;
+  // box-sizing: border-box;
+  // width: 100%;
+  // border: solid #5B6DCD 1px;
+  // padding: 5px;
+  // border-top: none;
+  // border-right: none;
+  // border-bottom: visible;
+  // border-left: none;
+`;
+
+const BackArrow = styled.span`
+  color: #1E90FF;
+  font-size: 15px;
+  padding-top: 3%;
+  padding-left: 2%;
 `;
 const Tweetdata = styled.span`
-  justify-content: center;
-  display: flex;
   font-family: "Raleway", sans-serif !important;
-  padding: 7%;
-  height: 400px;
+  box-sizing: border-box;
+  width: 100%;
+  border: solid #5B6DCD 1px;
+  border: none;
+  padding: 3%;
+`;
+const Imagedata = styled.span`
+  font-family: "Raleway", sans-serif !important;
+  box-sizing: border-box;
+  width: 100%;
+  border: solid #5B6DCD 1px;
+  border-radius: 15px;
+  border: Visible;
+  // padding: 1%;
 `;
 const Name = styled.span`
   font-family: "Raleway", sans-serif !important;
   font-size: 15px;
-  margin-top: 4%;
   margin-left: 1%;
 `;
 const Email = styled.span`
   font-family: "Raleway", sans-serif !important;
-  font-size: 10px;
-  margin-top: -4%;
-  margin-left: 13%;
+  font-size: 11px;
+
 `;
 const Time = styled.span`
   font-family: "Raleway", sans-serif !important;
@@ -87,140 +117,174 @@ const Like = styled.span`
   font-size: 10px;
 `;
 const Details = styled.div`
-  border: solid 0.5px #e8e8e8;
-  width: 514px;
+  border: none;
 `;
 
 const useStyles = makeStyles((theme) => ({
-  avatar: {
-    marginTop: "4%",
-    marginLeft: "4%",
+  root: {
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
-  maingrid: {
-    display: "flex",
-    justifyContent: "flex-end",
-    paddingBottom: "12%",
+  mainContainer: {
+    display: 'flex',
+    justifyContent: 'flex-start'
+  },
+  mainColumn: {
+    width: '100%',
+  },
+
+  first_row: {
+    padding: '2%',
+  },
+  second_row: {
+    paddingTop: '2%'
+  },
+  third_row: {
+    paddingBottom: '3%'
+  },
+
+  avatar: {
+    marginLeft: "2%",
+  },
+  span_tweet: {
+    fontWeight: 'bold',
+    fontSize: '20',
   },
   popupgrid: {
     display: "flex",
     justifyContent: "flex-end",
     padding: "16px",
   },
+  hr_page: {
+    width: '100%',
+    color: 'red',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  }
 }));
-export default function MainComponent() {
+export default function MainComponent(props) {
   const classes = useStyles();
+
+  // console.log('props--',props?.count)
 
   const location = useLocation()
   const url = location.search.slice(5)
 
+  // let main = url.split('status/')[1]
+  // console.log('ii--',main)
 
-  // const [count, setCount] = useState({});
-  // alert(JSON.stringify(location.state))
+
+  // let id = '1415545036037492700'
+
+  let value = props?.count[0]?.name
+  let words = props?.count[0]?.text
+  let time = moment(props?.count[0]?.createdAt).format('LT')
+  let date = moment(props?.count[0]?.createdAt).format('LL'); 
+
+
+  // let handler = value?.length
+  // console.log('hand---', value)
+  // console.log('create..',time)
+
   // useEffect(() => {
-  //   fetchCount();
+  //   fetchbySearch();
   // }, []);
-  // const fetchCount = () => {
-  //   axios({
-  //     url:  "https://ki3l56sayb.execute-api.us-east-2.amazonaws.com/xinfin-twitter-gettweetsfromtweeturl?url=https://twitter.com/MichalStein2/status/1404839937908875264",
-      // method: "POST",
-      // mode: 'no-cors',
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   "Access-Control-Allow-Origin": process.env.REACT_APP_API_URL,
-      //   "Access-Control-Request-Headers": 'Content-Type, Authorization',
-      //   "Content-Security-Policy": 'frame-ancestors self'
-      // }
-  //   })
-
+  // const fetchbySearch = () => {
+  //   axios
+  //     .get(
+  //       "https://ki3l56sayb.execute-api.us-east-2.amazonaws.com/archived-tweet-from-testnet?id=" + tweet
+  //     )
   //     .then((res) => {
-  //       console.log("result-------", res)
-  //       setCount(res);
-
+  //       setSearch(res.data.responseData.responseData);
+  //       console.log("tweets----", res.data.responseData.responseData)
+  //       // console.log('link---',url)
   //     })
   //     .catch((err) => {
-  //       console.log("err-------", err);
+  //       console.log("error-----", err);
   //     });
   // };
 
-  const [count, setCount] = useState({});
-  useEffect(() => {
-    fetchCount();
-  }, []);
-  const fetchCount = () => {
-    axios
-      .get(
-        "https://ki3l56sayb.execute-api.us-east-2.amazonaws.com/xinfin-twitter-gettweetsfromtweeturl?url="+url
-        )
-      .then((res) => {
-        setCount(res.data.responseData.responseData);
-        console.log("tweets----", res.data.responseData.responseData)
-        console.log('link---',url)
-      })
-      .catch((err) => {
-        console.log("error-----",err);
-      });
-  };
+  // let value = search[0]?.tweetMessage
+  // const colonIndex = value?.indexOf(":");
+  // const atIndex = value?.indexOf("@");
+  // let handler = value?.slice(atIndex, 10);
+  // let name = handler?.split("@")[1];
 
-let value=count?.data
-// let handler = value?.length
-// console.log('hand---',handler)
+  let icon = value?.split(' ').map(x => x.charAt(0)).join('').substr(0, 1).toUpperCase()
+  let dummyHandle = value?.slice(0,value?.length).replace(/\s/g, "").toLowerCase()
+
+  // let link = value?.split("https://")[1]
+  // let tweetTextMessage = value?.split(":")[1];
+  // console.log('icon--', icon)
+  // console.log('naame--', name)
+  // console.log('hand---', handler)
+  // console.log('tm--', dummyHandle)
+
+
 
   return (
     <>
+      <br />
       <Grid xs={12}>
         <Row>
-          <Grid xs={8} className={classes.maingrid}>
-            <Container>
-            {/* <div className="loader"></div> */}
-            <Column>
+          <Grid xs={8} className={classes.root}>
+            <Container className={classes.mainContainer}>
+              <Column className={classes.mainColumn} >
                 <Row>
-                  <Heading> ARCHIVE TWEET</Heading>
-                  <br /> 
-                  <br />
+                  <BackArrow> <ArrowBackIcon /></BackArrow>
+                  <Heading className={classes.span_tweet}>
+                    <span className={classes.span_tweet}>TWEET</span>
+                  </Heading>
                 </Row>
-
+                <hr className={classes.hr_page} />
                 <Row>
-                  <Avatar className={classes.avatar}>H</Avatar>
-                  <Name>{value?.name}</Name>
+                  <Avatar className={classes.avatar}>
+                    {icon}
+                    </Avatar>
+                  <Name >
+                    <Row className={classes.span_tweet}>
+                      {value}
+                    </Row>
+                    <Row>
+                      <Email>
+                      {dummyHandle ? '@'+dummyHandle : 'Loading..'}
+                      </Email>
+                    </Row>
+                  </Name>
                 </Row>
-
-                <Email>@{value?.name}</Email>
-
                 <br />
                 <Row>
                   <Tweetdata>
-                   {/* {value} */}
-                    <br />
-                    <br />
-                   {value?.text}
-                    <br />
-                    <br />
+                    <span className={classes.span_tweet}> 
+                    {words}
+                     </span>
                   </Tweetdata>
                 </Row>
-                <Row>
+                <hr className={classes.hr_page} />
+                <Row className={classes.second_row}>
                   <Details>
-                    <Time> &nbsp;&nbsp;&nbsp;&nbsp;12:28 AM&emsp;.</Time>
-                    <Date>&nbsp;May 12,2021&emsp;.</Date>
-                    <Twitterwebapp>&nbsp;Twitter Web App&nbsp;.</Twitterwebapp>
+                    <Time> &nbsp;&nbsp;&nbsp;&nbsp;
+                      {time ? time : '-'}
+                      &emsp;</Time>
+                    <Date>&nbsp;
+                      {date ? date : '-'}
+                      &emsp;</Date>
+                    {/* <Twitterwebapp>&nbsp;Twitter Web App&nbsp;.</Twitterwebapp> */}
                   </Details>
-                </Row>
-                <Row>
-                  <Retweetscount>
-                    {" "}
-                    &nbsp;&nbsp;&nbsp;&nbsp; 13&emsp;
-                  </Retweetscount>
-                  <Retweets>Retweets&emsp;</Retweets>
-                  <QuoteTweetcount> &nbsp; 3&nbsp;</QuoteTweetcount>
-                  <QuoteTweet>Quote Tweets&emsp;</QuoteTweet>
-                  <Likescount> &nbsp; 139 &nbsp;</Likescount>
-                  <Likes>Likes&emsp;</Likes>
-                </Row>
+                </Row><br/>
               </Column>
-            
             </Container>
           </Grid>
           <Grid xs={4} className={classes.popupgrid}>
-            {/* <Popup /> */}
+            {props?.count?.length > 0 ?
+
+              <div class="animated fadeOut">
+                <Toast />
+              </div>
+
+              : null
+            }
+            {/* <Toast/> */}
           </Grid>
         </Row>
       </Grid>
