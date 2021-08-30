@@ -165,62 +165,15 @@ const useStyles = makeStyles((theme) => ({
 export default function MainComponent(props) {
   const classes = useStyles();
 
-  // console.log('props--',props?.count)
-
   const location = useLocation()
   const url = location.search.slice(5)
-
-  // let main = url.split('status/')[1]
-  // console.log('ii--',main)
-
-
-  // let id = '1415545036037492700'
 
   let value = props?.count[0]?.name
   let words = props?.count[0]?.text
   let time = moment(props?.count[0]?.createdAt).format('LT')
-  let date = moment(props?.count[0]?.createdAt).format('LL'); 
-
-
-  // let handler = value?.length
-  // console.log('hand---', value)
-  // console.log('create..',time)
-
-  // useEffect(() => {
-  //   fetchbySearch();
-  // }, []);
-  // const fetchbySearch = () => {
-  //   axios
-  //     .get(
-  //       "https://ki3l56sayb.execute-api.us-east-2.amazonaws.com/archived-tweet-from-testnet?id=" + tweet
-  //     )
-  //     .then((res) => {
-  //       setSearch(res.data.responseData.responseData);
-  //       console.log("tweets----", res.data.responseData.responseData)
-  //       // console.log('link---',url)
-  //     })
-  //     .catch((err) => {
-  //       console.log("error-----", err);
-  //     });
-  // };
-
-  // let value = search[0]?.tweetMessage
-  // const colonIndex = value?.indexOf(":");
-  // const atIndex = value?.indexOf("@");
-  // let handler = value?.slice(atIndex, 10);
-  // let name = handler?.split("@")[1];
-
+  let date = moment(props?.count[0]?.createdAt).format('LL');
   let icon = value?.split(' ').map(x => x.charAt(0)).join('').substr(0, 1).toUpperCase()
-  let dummyHandle = value?.slice(0,value?.length).replace(/\s/g, "").toLowerCase()
-
-  // let link = value?.split("https://")[1]
-  // let tweetTextMessage = value?.split(":")[1];
-  // console.log('icon--', icon)
-  // console.log('naame--', name)
-  // console.log('hand---', handler)
-  // console.log('tm--', dummyHandle)
-
-
+  let dummyHandle = value?.slice(0, value?.length).replace(/\s/g, "").toLowerCase()
 
   return (
     <>
@@ -240,14 +193,14 @@ export default function MainComponent(props) {
                 <Row>
                   <Avatar className={classes.avatar}>
                     {icon}
-                    </Avatar>
+                  </Avatar>
                   <Name >
                     <Row className={classes.span_tweet}>
                       {value}
                     </Row>
                     <Row>
                       <Email>
-                      {dummyHandle ? '@'+dummyHandle : 'Loading..'}
+                        {dummyHandle ? '@' + dummyHandle : 'Loading..'}
                       </Email>
                     </Row>
                   </Name>
@@ -255,9 +208,9 @@ export default function MainComponent(props) {
                 <br />
                 <Row>
                   <Tweetdata>
-                    <span className={classes.span_tweet}> 
-                    {words}
-                     </span>
+                    <span className={classes.span_tweet}>
+                      {words}
+                    </span>
                   </Tweetdata>
                 </Row>
                 <hr className={classes.hr_page} />
@@ -269,9 +222,8 @@ export default function MainComponent(props) {
                     <Date>&nbsp;
                       {date ? date : '-'}
                       &emsp;</Date>
-                    {/* <Twitterwebapp>&nbsp;Twitter Web App&nbsp;.</Twitterwebapp> */}
                   </Details>
-                </Row><br/>
+                </Row><br />
               </Column>
             </Container>
           </Grid>
@@ -284,7 +236,6 @@ export default function MainComponent(props) {
 
               : null
             }
-            {/* <Toast/> */}
           </Grid>
         </Row>
       </Grid>

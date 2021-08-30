@@ -80,9 +80,6 @@ const MobileView = styled.div`
 `;
 export default function HeaderComponent(props) {
   const [inputValue, setInputValue] = useState("");
-  // console.log('props--',props?.id)
-  // console.log('props--',props?.headerLink)
-  // console.log('props--',props?.count)
   
   return (
     <>
