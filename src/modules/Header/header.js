@@ -22,7 +22,7 @@ const MobileImage = styled.img`
 `;
 const Span = styled.span`
   color: #ffffff;
-  font-size: 19px;
+  font-size: 21px;
   margin-top: 21px;
   font-weight: 600;
   font-family: "Raleway", sans-serif !important;
@@ -45,7 +45,6 @@ const Input = styled.input`
 const Button = styled.button`
   color: #ffffff;
   height: 32px;
-
   width: 96px;
   padding: 10px;
   margin-top: 18px;
@@ -53,7 +52,7 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   background-color: #5760bc;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   font-stretch: normal;
   font-style: normal;
@@ -78,8 +77,9 @@ const MobileView = styled.div`
   display: none;
 }
 `;
-export default function HeaderComponent() {
+export default function HeaderComponent(props) {
   const [inputValue, setInputValue] = useState("");
+  
   return (
     <>
       <DesktopView>
@@ -91,10 +91,12 @@ export default function HeaderComponent() {
             <Input
               type="text"
               readOnly={true}
-              value={inputValue}
+              value={props?.count?.length > 0 ? props?.headerLink : ''}
+              // value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <CopyToClipboard text={inputValue}>
+            <CopyToClipboard text={props?.count?.length > 0? props?.headerLink : ''}>
+              {/* text={`https://`+props?.tweeturl} */}
               <Button>Copy</Button>
             </CopyToClipboard>
           </Row>
@@ -109,15 +111,17 @@ export default function HeaderComponent() {
           </Row>
           <Column style={{ paddingBottom: '20px' }}>
             <Row>
-              <Input
-                type="text"
-                readOnly={true}
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-              />
-              <CopyToClipboard text={inputValue}>
-                <Button>Copy</Button>
-              </CopyToClipboard>
+            <Input
+              type="text"
+              readOnly={true}
+              value={props?.count?.length > 0 ? props?.headerLink : ''}
+              // value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <CopyToClipboard text={props?.count?.length > 0 ? props?.headerLink : ''}>
+              {/* text={`https://`+props?.tweeturl} */}
+              <Button>Copy</Button>
+            </CopyToClipboard>
             </Row>
           </Column>
         </Container>
