@@ -13,7 +13,6 @@ import Popup from "../modules/popupbox";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     backgroundColor: theme.palette.background.paper,
@@ -56,14 +55,13 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     borderRadius: "4px",
     background: "url(/images/search.svg) no-repeat 15px",
-    backgroundSize: '23px 25px',
     border: "solid 1px #aab1ff",
     width: "545px",
     height: "40px",
     marginRight: "7px",
     color: "#09184b",
     marginTop: "-9px",
-    // backgroundSize: "25px",
+    backgroundSize: "25px",
     paddingLeft: "8%",
   },
   // "@media (min-width: 400px) and (max-width: 1080px)": {
@@ -188,117 +186,107 @@ export default function Album() {
       <React.Fragment>
         <main className={classes.main}>
 
-          <TextView>
-            <div className={classes.heroContent}>
-              <Container className={classes.Container} maxWidth="sm">
-                <Typography className={classes.enterTweetLink}>
-                  Enter Tweet Link
-                </Typography>
+        <TextView>
+          <div className={classes.heroContent}>
+            <Container className={classes.Container} maxWidth="sm">
+              <Typography className={classes.enterTweetLink}>
+                Enter Tweet Link
+              </Typography>
 
-                <div className={classes.heroButtons}>
-                  <Grid container spacing={2} justify="center">
-                    <Grid item>
-                      <Row>
-                        <input className={classes.input} type="text" onChange={e => setTweet(e.target.value)} />
-                        {/* <a href={"/archive/" + tweet}>
-                          <button className={classes.button} >Archive</button>
-                        </a> */}
-                        <button className={classes.button} onClick={redirect}>
-                          Archive
-                        </button>
-                      </Row>
+              <div className={classes.heroButtons}>
+                <Grid container spacing={2} justify="center">
+                  <Grid item>
+                    <Row>
+                      <input className={classes.input} type="text" onChange={e => setTweet(e.target.value)} />
+                      <button className={classes.button} onClick={redirect}>
+                        Archive
+                      </button>
+                    </Row>
 
-                      <div
-                        style={{ display: "flex", justifyContent: "flex-end" }}
-                      >
-                        <div className={classes.span}>
-                          <span className={classes.no_of_tweets_archived}>
-                            20,000
-                          </span>
-                          tweets have been archived
-                        </div>
+                    <div
+                      style={{ display: "flex", justifyContent: "flex-end" }}
+                    >
+                      <div className={classes.span}>
+                        <span className={classes.no_of_tweets_archived}>
+                          20,000
+                        </span>
+                        tweets have been archived
                       </div>
-                    </Grid>
+                    </div>
                   </Grid>
-                </div>
-              </Container>
-            </div>
+                </Grid>
+              </div>
+            </Container>
+          </div>
           </TextView>
 
-          <MobileView>
-            <Container className={classes.cardGrid} fixed>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={12} md={4}>
-                  <Paper className={classes.paper}>
-                    <div className={classes.cardactionarea}>
-                      <div className={classes.stopfakenews}>
-                        <img src="/images/new.svg" />
-                      </div>
-                      <div>
-                        <CardContent className={classes.cardContent}>
-                          <Typography className={classes.heading}>
-                            Stop Fake News
-                          </Typography>
-                          <Typography className={classes.subheading}>
-                            Help in making the world better-informed
-                          </Typography>
-                          <Typography className={classes.subheading}>
-                            by stopping fake news
-                          </Typography>
-                        </CardContent>
-                      </div>
+        <MobileView>
+          <Container className={classes.cardGrid} fixed>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={12} md={4}>
+                <Paper className={classes.paper}>
+                  <div className={classes.cardactionarea}>
+                    <div className={classes.stopfakenews}>
+                      <img src="/images/fakenews.svg" />
                     </div>
-                  </Paper>
-                </Grid>
-                <Grid item xs={12} sm={12} md={4}>
-                  <Paper className={classes.paper}>
-                    <div className={classes.cardactionarea}>
-                      <div className={classes.allImagesdiv}>
-                        <img src="/images/Group 195.svg" />
-                      </div>
-
+                    <div>
                       <CardContent className={classes.cardContent}>
                         <Typography className={classes.heading}>
-                          Archive your Tweets
+                          Stop Fake News
                         </Typography>
                         <Typography className={classes.subheading}>
-                          Archive your tweets in our platform so that
-                        </Typography>
-                        <Typography className={classes.subheading}>
-                          it stays forever
+                          Help in making the world better-informed by stopping
+                          fake news
                         </Typography>
                       </CardContent>
                     </div>
-                  </Paper>
-                </Grid>
-                <Grid item xs={12} sm={12} md={4}>
-                  <Paper className={classes.paper}>
-                    <div className={classes.cardactionarea}>
-                      <div className={classes.allImagesdiv}>
-                        <img src="/images/Legalnews.svg" />
-                      </div>
-
-                      <CardContent className={classes.cardContent}>
-                        <Typography className={classes.heading}>
-                          Save links for legal actions
-                        </Typography>
-                        <Typography className={classes.subheading}>
-                          Use your saved links for the future legal
-                        </Typography>
-                        <Typography className={classes.subheading}>
-                          actions
-                        </Typography>
-                      </CardContent>
-                    </div>
-                  </Paper>
-                </Grid>
+                  </div>
+                </Paper>
               </Grid>
-            </Container>
+              <Grid item xs={12} sm={12} md={4}>
+                <Paper className={classes.paper}>
+                  <div className={classes.cardactionarea}>
+                    <div className={classes.allImagesdiv}>
+                      <img src="/images/Group 195.svg" />
+                    </div>
 
+                    <CardContent className={classes.cardContent}>
+                      <Typography className={classes.heading}>
+                        Archive your Tweets
+                      </Typography>
+                      <Typography className={classes.subheading}>
+                        Archive your tweets in our platform so that it stays
+                        forever
+                      </Typography>
+                    </CardContent>
+                  </div>
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4}>
+                <Paper className={classes.paper}>
+                  <div className={classes.cardactionarea}>
+                    <div className={classes.allImagesdiv}>
+                      <img src="/images/Legalnews.svg" />
+                    </div>
+
+                    <CardContent className={classes.cardContent}>
+                      <Typography className={classes.heading}>
+                        Save links for legal actions
+                      </Typography>
+                      <Typography className={classes.subheading}>
+                        Use your saved links for the future legal actions
+                      </Typography>
+                    </CardContent>
+                  </div>
+                </Paper>
+              </Grid>
+            </Grid>
+          </Container>
+         
           </MobileView>
-
+         
         </main>
       </React.Fragment>
-    </div >
+    </div>
   );
 }
