@@ -15,6 +15,7 @@ export default function CardComponent() {
   const [count, setCount] = useState({});
   const [link, setLink]=useState([]);
   const [search, setSearch] = useState({});
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     fetchCount();
@@ -28,6 +29,7 @@ export default function CardComponent() {
       .then((res) => {
         setCount(res.data.responseData[0]);
         setLink(res.data.responseData[1]?.tweet_url)
+        setLoading(false)
       })
       .catch((err) => {
         console.log("error-----", err);
@@ -42,7 +44,7 @@ export default function CardComponent() {
       <>
         <Column>
           <HeaderComponent count={count} headerLink={link}/>
-          <MainComponent count={count}/>
+          <MainComponent count={count} load={isLoading}/>
           {/* <FooterComponent /> */}
         </Column>
       </>

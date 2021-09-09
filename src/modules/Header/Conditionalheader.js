@@ -96,7 +96,7 @@ const MobileImage = styled.img`
 `;
 const Span = styled.span`
   color: #ffffff;
-  font-size: 19px;
+  font-size: 21px;
   margin-top: 21px;
   font-weight: 600;
   font-family: "Raleway", sans-serif !important;

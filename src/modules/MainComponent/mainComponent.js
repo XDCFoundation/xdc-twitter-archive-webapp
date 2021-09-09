@@ -12,6 +12,7 @@ import Toast from './Toast';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { nullLiteralTypeAnnotation } from "@babel/types";
 import moment from 'moment';
+import Loader from './loader';
 
 const Container = styled.div`
   // justify-content: center;
@@ -178,67 +179,125 @@ export default function MainComponent(props) {
   return (
     <>
       <br />
-      <Grid xs={12}>
-        <Row>
-          <Grid xs={8} className={classes.root}>
-            <Container className={classes.mainContainer}>
-              <Column className={classes.mainColumn} >
-                <Row>
-                  <BackArrow> <ArrowBackIcon /></BackArrow>
-                  <Heading className={classes.span_tweet}>
-                    <span className={classes.span_tweet}>TWEET</span>
-                  </Heading>
-                </Row>
-                <hr className={classes.hr_page} />
-                <Row>
-                  <Avatar className={classes.avatar}>
-                    {icon}
-                  </Avatar>
-                  <Name >
-                    <Row className={classes.span_tweet}>
-                      {value}
-                    </Row>
+      {props?.load ? (
+        <Grid xs={12}>
+          <Row>
+            <Grid xs={8} className={classes.root}>
+              <Container className={classes.mainContainer}>
+                <Column className={classes.mainColumn} >
+                  <Row>
+                    <BackArrow> <ArrowBackIcon /></BackArrow>
+                    <Heading className={classes.span_tweet}>
+                      <span className={classes.span_tweet}>TWEET</span>
+                    </Heading>
+                  </Row>
+                  <hr className={classes.hr_page} />
+                  <Row>
+                    <Avatar className={classes.avatar}>
+                      -
+                    </Avatar>
+                    <Name >
+                      <Row className={classes.span_tweet}>
+                        {''}
+                      </Row>
+                      <Row>
+                        <Email>
+                          {''}
+                        </Email>
+                      </Row>
+                    </Name>
+                  </Row>
+                  <br />
+                  <Row>
+                    <Tweetdata>
+                      {''}
+                      <Loader />
+                      {''}
+                    </Tweetdata>
+                  </Row>
+                  <hr className={classes.hr_page} />
+                  <Row className={classes.second_row}>
+                    <Details>
+                      <Time> &nbsp;&nbsp;&nbsp;&nbsp;
+                        {''}
+                        &emsp;</Time>
+                      <Date>&nbsp;
+                        {''}
+                        &emsp;</Date>
+                    </Details>
+                  </Row><br />
+                </Column>
+              </Container>
+            </Grid>
+
+          </Row>
+        </Grid>
+
+      ) :
+        (
+          <Grid xs={12}>
+            <Row>
+              <Grid xs={8} className={classes.root}>
+                <Container className={classes.mainContainer}>
+                  <Column className={classes.mainColumn} >
                     <Row>
-                      <Email>
-                        {dummyHandle ? '@' + dummyHandle : 'Loading..'}
-                      </Email>
+                      <BackArrow> <ArrowBackIcon /></BackArrow>
+                      <Heading className={classes.span_tweet}>
+                        <span className={classes.span_tweet}>TWEET</span>
+                      </Heading>
                     </Row>
-                  </Name>
-                </Row>
-                <br />
-                <Row>
-                  <Tweetdata>
-                    <span className={classes.span_tweet}>
-                      {words}
-                    </span>
-                  </Tweetdata>
-                </Row>
-                <hr className={classes.hr_page} />
-                <Row className={classes.second_row}>
-                  <Details>
-                    <Time> &nbsp;&nbsp;&nbsp;&nbsp;
-                      {time ? time : '-'}
-                      &emsp;</Time>
-                    <Date>&nbsp;
-                      {date ? date : '-'}
-                      &emsp;</Date>
-                  </Details>
-                </Row><br />
-              </Column>
-            </Container>
-          </Grid>
-          <Grid xs={4} className={classes.popupgrid}>
-            {props?.count?.length > 0 ?
+                    <hr className={classes.hr_page} />
+                    <Row>
+                      <Avatar className={classes.avatar}>
+                        {icon}
+                      </Avatar>
+                      <Name >
+                        <Row className={classes.span_tweet}>
+                          {value}
+                        </Row>
+                        <Row>
+                          <Email>
+                            {dummyHandle ? '@' + dummyHandle : 'Loading..'}
+                          </Email>
+                        </Row>
+                      </Name>
+                    </Row>
+                    <br />
+                    <Row>
+                      <Tweetdata>
+                        <span className={classes.span_tweet}>
+                          {words}
+                        </span>
+                      </Tweetdata>
+                    </Row>
+                    <hr className={classes.hr_page} />
+                    <Row className={classes.second_row}>
+                      <Details>
+                        <Time> &nbsp;&nbsp;&nbsp;&nbsp;
+                          {time ? time : '-'}
+                          &emsp;</Time>
+                        <Date>&nbsp;
+                          {date ? date : '-'}
+                          &emsp;</Date>
+                      </Details>
+                    </Row><br />
+                  </Column>
+                </Container>
+              </Grid>
+              <Grid xs={4} className={classes.popupgrid}>
+                {props?.count?.length > 0 ?
 
-              <div class="animated fadeOut">
-                <Toast />
-              </div>
+                  <div class="animated fadeOut">
+                    <Toast />
+                  </div>
 
-              : null
-            }
+                  : null
+                }
+              </Grid>
+            </Row>
           </Grid>
-        </Row>
-      </Grid>
+        )}
+
     </>
   );
 }

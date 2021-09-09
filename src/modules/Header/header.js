@@ -22,7 +22,7 @@ const MobileImage = styled.img`
 `;
 const Span = styled.span`
   color: #ffffff;
-  font-size: 19px;
+  font-size: 21px;
   margin-top: 21px;
   font-weight: 600;
   font-family: "Raleway", sans-serif !important;
@@ -45,7 +45,6 @@ const Input = styled.input`
 const Button = styled.button`
   color: #ffffff;
   height: 32px;
-
   width: 96px;
   padding: 10px;
   margin-top: 18px;
@@ -53,7 +52,7 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   background-color: #5760bc;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   font-stretch: normal;
   font-style: normal;

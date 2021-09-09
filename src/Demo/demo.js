@@ -80,9 +80,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "4px",
     color: "#ffffff",
     border: "none",
-    fontSize: "15px",
+    fontSize: "18px",
     width: "115px",
-    padding: '11px',
+    padding: '8px',
     marginTop: "-9px",
     fontFamily: "Raleway,sans-serif !important",
     fontWeight: "normal",
@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
   span: {
     marginTop: "16px",
     fontFamily: "Raleway,sans-serif !important",
-    fontSize: "12px",
+    fontSize: "14px",
     display: "flex",
   },
   no_of_tweets_archived: {
@@ -110,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
   },
   heading: {
-    fontSize: "15px",
+    fontSize: "18px",
     fontFamily: "Raleway,sans-serif !important",
     fontWeight: "500",
     fontStretch: "normal",
@@ -123,12 +123,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "4%",
   },
   subheading: {
-    fontSize: "13px",
+    fontSize: "14px",
     fontFamily: "Raleway,sans-serif !important",
   },
   enterTweetLink: {
     marginTop: "-25px",
-    fontSize: "28px",
+    fontSize: "32px",
     fontFamily: "Raleway,sans-serif !important",
     textAlign: "center",
   },
