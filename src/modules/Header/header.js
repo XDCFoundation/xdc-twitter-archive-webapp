@@ -10,14 +10,16 @@ const Container = styled.div`
 `;
 const Image = styled.img`
   padding: 10px;
+  width: 200px;
+  height: 50px;
   margin-left: 45px;
-  width: 57px;
   margin-top: 3px;
 `;
 const MobileImage = styled.img`
   padding: 10px;
+  width: 200px;
+  height: 50px;
   margin-left: 12px;
-  width: 57px;
   margin-top: 3px;
 `;
 const Span = styled.span`
@@ -34,12 +36,19 @@ const Span = styled.span`
 const Input = styled.input`
   background-color: #3d4270;
   border-radius: 4px;
-  font-family: WorkSans-Roman !important;
   color: #ffffff;
+  font-family: WorkSans-Roman !important;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
   border: none;
   height: 32px;
-  width: 40%;
-  margin-left: 33px;
+  width: 43%;
+  margin-left: 25px;
   margin-top: 18px;
 `;
 const Button = styled.button`
@@ -58,45 +67,48 @@ const Button = styled.button`
   font-style: normal;
   line-height: 0.28;
   font-family: "IBM Plex Sans", sans-serif !important;
+  &:hover {
+    color: black;
+  }
 `;
 const DesktopView = styled.div`
-@media (min-width: 0px) and (max-width: 767px) {
- display: none;
-}
-@media (min-width: 768px) {
-  display: visible;
-}
+  @media (min-width: 0px) and (max-width: 767px) {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    display: visible;
+  }
 `;
 
-
 const MobileView = styled.div`
-@media (min-width: 0px) and (max-width: 767px) {
-  display: visible;
-}
-@media (min-width: 768px) {
-  display: none;
-}
+  @media (min-width: 0px) and (max-width: 767px) {
+    display: visible;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 export default function HeaderComponent(props) {
   const [inputValue, setInputValue] = useState("");
-  
+
   return (
     <>
       <DesktopView>
         <Container>
           <Row>
-            <Image src="/images/tweetarchive.svg" />
-            <Span>TweetArchive</Span>
+            <a href="/">
+              <Image src="/images/archiveLogo.png" />
+            </a>
 
             <Input
               type="text"
               readOnly={true}
-              value={props?.count?.length > 0 ? props?.headerLink : ''}
-              // value={inputValue}
+              value={props?.count?.length > 0 ? props?.headerLink : ""}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <CopyToClipboard text={props?.count?.length > 0? props?.headerLink : ''}>
-              {/* text={`https://`+props?.tweeturl} */}
+            <CopyToClipboard
+              text={props?.count?.length > 0 ? props?.headerLink : ""}
+            >
               <Button>Copy</Button>
             </CopyToClipboard>
           </Row>
@@ -106,22 +118,23 @@ export default function HeaderComponent(props) {
       <MobileView>
         <Container>
           <Row>
-            <MobileImage src="/images/tweetarchive.svg" />
-            <Span>TweetArchive</Span>
+            <a href="/">
+              <MobileImage src="/images/archiveLogo.png" />
+            </a>
           </Row>
-          <Column style={{ paddingBottom: '20px' }}>
+          <Column style={{ paddingBottom: "20px" }}>
             <Row>
-            <Input
-              type="text"
-              readOnly={true}
-              value={props?.count?.length > 0 ? props?.headerLink : ''}
-              // value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <CopyToClipboard text={props?.count?.length > 0 ? props?.headerLink : ''}>
-              {/* text={`https://`+props?.tweeturl} */}
-              <Button>Copy</Button>
-            </CopyToClipboard>
+              <Input
+                type="text"
+                readOnly={true}
+                value={props?.count?.length > 0 ? props?.headerLink : ""}
+                onChange={(e) => setInputValue(e.target.value)}
+              />
+              <CopyToClipboard
+                text={props?.count?.length > 0 ? props?.headerLink : ""}
+              >
+                <Button>Copy</Button>
+              </CopyToClipboard>
             </Row>
           </Column>
         </Container>

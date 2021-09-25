@@ -4,19 +4,18 @@ import HeaderComponent from "../Header/header";
 import MainComponent from "./mainComponent";
 import { Row, Column } from "simple-flexbox";
 import FooterComponent from "../Footer/footer";
-import { useLocation, useParams } from 'react-router-dom';
-import axios from 'axios';
+import { useLocation, useParams } from "react-router-dom";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function CardComponent() {
-
-  const location = useLocation()
-  const url = location.search.slice(5)
+  const location = useLocation();
+  const url = location.search.slice(5);
 
   const [count, setCount] = useState({});
   const [link, setLink] = useState([]);
   const [search, setSearch] = useState({});
-  const [isLoading, setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchCount();
@@ -24,13 +23,11 @@ export default function CardComponent() {
 
   const fetchCount = () => {
     axios
-      .get(
-        process.env.REACT_APP_GET_TWEET_BY_URL + url
-      )
+      .get(process.env.REACT_APP_GET_TWEET_BY_URL + url)
       .then((res) => {
         setCount(res.data.responseData[0]);
-        setLink(res.data.responseData[1]?.tweet_url)
-        setLoading(false)
+        setLink(res.data.responseData[1]?.tweet_url);
+        setLoading(false);
       })
       .catch((err) => {
         console.log("error-----", err);
@@ -39,8 +36,6 @@ export default function CardComponent() {
 
   // let main = url.split('status/')[1]
   // console.log('ii--',main)
-
-
 
   return (
     <>
