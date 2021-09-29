@@ -48,7 +48,7 @@ export default function FooterComponent() {
         <Column>
           <Row>
             <Poweredheading>Powered By &nbsp; </Poweredheading>
-            <Xinfin>Xinfin</Xinfin>
+            <Xinfin>XDC Speed Test</Xinfin>
           </Row>
 
           <Year> &copy; 2021</Year>
