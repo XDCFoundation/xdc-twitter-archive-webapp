@@ -7,6 +7,8 @@ import FooterComponent from "../Footer/footer";
 import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Utils from "../../utility";
+import Toast from "./Toast";
 
 export default function CardComponent() {
   const location = useLocation();
@@ -25,6 +27,7 @@ export default function CardComponent() {
     axios
       .get(process.env.REACT_APP_GET_TWEET_BY_URL + url)
       .then((res) => {
+        Utils.apiSuccessToast("Your tweet has been Archived");
         setCount(res.data.responseData[0]);
         setLink(res.data.responseData[1]?.tweet_url);
         setLoading(false);

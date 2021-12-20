@@ -13,11 +13,12 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { nullLiteralTypeAnnotation } from "@babel/types";
 import moment from "moment";
 import Loader from "./loader";
+import Utils from "../../utility";
 
 const Container = styled.div`
   // justify-content: center;
   // display: flex;
-  width: 50%;
+  width: 500px;
   height: 100%;
   background-color: #ffffff;
   border: solid 0.5px #d3d3d3;
@@ -121,6 +122,17 @@ const Details = styled.div`
   border: none;
 `;
 
+const Mainbox = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  @media (min-width: 0px) and (max-width: 767px) {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+`;
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -165,7 +177,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function MainComponent(props) {
   const classes = useStyles();
-
   const location = useLocation();
   const url = location.search.slice(5);
 
@@ -189,9 +200,9 @@ export default function MainComponent(props) {
       <br />
       {props?.load ? (
         <Grid xs={12}>
-          <Row>
-            <Grid xs={8} className={classes.root}>
-              <Container className={classes.mainContainer}>
+          <Mainbox>
+            <Row>
+              <Container>
                 <Column className={classes.mainColumn}>
                   <Row>
                     <BackArrow>
@@ -240,14 +251,14 @@ export default function MainComponent(props) {
                   <br />
                 </Column>
               </Container>
-            </Grid>
-          </Row>
+            </Row>
+          </Mainbox>
         </Grid>
       ) : (
         <Grid xs={12}>
-          <Row>
-            <Grid xs={8} className={classes.root}>
-              <Container className={classes.mainContainer}>
+          <Mainbox>
+            <Row>
+              <Container>
                 <Column className={classes.mainColumn}>
                   <Row>
                     <BackArrow>
@@ -296,15 +307,8 @@ export default function MainComponent(props) {
                   <br />
                 </Column>
               </Container>
-            </Grid>
-            <Grid xs={4} className={classes.popupgrid}>
-              {props?.count?.length > 0 ? (
-                <div class="animated fadeOut">
-                  <Toast />
-                </div>
-              ) : null}
-            </Grid>
-          </Row>
+            </Row>
+          </Mainbox>
         </Grid>
       )}
     </>
