@@ -49,14 +49,14 @@ const Input = styled.input`
   height: 32px;
   width: 43%;
   margin-left: 25px;
-  margin-top: 18px;
+  margin-top: 11px;
 `;
 const Button = styled.button`
   color: #ffffff;
   height: 32px;
   width: 96px;
   padding: 10px;
-  margin-top: 18px;
+  margin-top: 11px;
   margin-left: 10px;
   border: none;
   border-radius: 4px;
