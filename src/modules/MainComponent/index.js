@@ -24,8 +24,11 @@ export default function CardComponent() {
   }, []);
 
   const fetchCount = () => {
+    let data = {
+      url,
+    };
     axios
-      .get(process.env.REACT_APP_GET_TWEET_BY_URL + url)
+      .post(process.env.REACT_APP_GET_TWEET_BY_URL, data)
       .then((res) => {
         Utils.apiSuccessToast("Your tweet has been Archived");
         setCount(res.data.responseData[0]);
@@ -33,7 +36,7 @@ export default function CardComponent() {
         setLoading(false);
       })
       .catch((err) => {
-        console.log("error-----", err);
+        // console.log("error-----", err);
       });
   };
 
