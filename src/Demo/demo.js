@@ -12,6 +12,7 @@ import MainComponent from "../modules/MainComponent/mainComponent";
 import Popup from "../modules/popupbox";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import millify from "millify";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -166,10 +167,11 @@ const MobileView = styled.div`
   }
 `;
 
-export default function Album() {
+export default function Album(props) {
   const classes = useStyles();
   const history = useHistory();
   const [tweet, setTweet] = useState("");
+  let archiveTweetCount = Number(props?.archiveCount)
 
   const redirect = () => {
     var urlRegex = /^http[s]?:\/\/(www\.)?(.*)?\/?(.)*/;
@@ -214,7 +216,7 @@ export default function Album() {
                       >
                         <div className={classes.span}>
                           <span className={classes.no_of_tweets_archived}>
-                            20,000
+                            {millify(archiveTweetCount) || ""}
                           </span>
                           tweets have been archived
                         </div>

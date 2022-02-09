@@ -2,8 +2,11 @@ import styled, { css } from "styled-components";
 import { Row, Column } from "simple-flexbox";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "react-bootstrap";
+import millify from "millify";
+import Utils from "../../utility";
+import { TweetService } from "../../services/index";
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -109,10 +112,28 @@ const Span = styled.span`
   line-height: 1.19;
 `;
 
-export default function Headerconditional() {
+export default function Headerconditional(props) {
   const classes = useStyles();
   const history = useHistory();
   const [tweet, setTweet] = useState("");
+  const [archiveTweetCount, setArchiveTweetCount] = useState("");
+
+  useEffect(() => {
+    totalArchiveTweets();
+  }, []);
+
+  const totalArchiveTweets = async () => {
+    const [err, res] = await Utils.parseResponse(
+      TweetService.getArchivedTweetCount()
+    );
+    if (err) {
+      console.log("hello");
+    } else {
+      setArchiveTweetCount(res?.response[1]?.blockchainTweetCount);
+      console.log("res", res?.response[1]?.blockchainTweetCount);
+    }
+  };
+  let archiveCount = Number(archiveTweetCount);
 
   const redirect = () => {
     var urlRegex = /^http[s]?:\/\/(www\.)?(.*)?\/?(.)*/;
@@ -164,7 +185,8 @@ export default function Headerconditional() {
               <Row>
                 <div className={classes.span}>
                   <span className={classes.no_of_tweets_archived}>
-                    20,000 tweets have been archived
+                    {millify(archiveCount + " " + "") || ""} tweets have been
+                    archived
                   </span>
                 </div>
               </Row>

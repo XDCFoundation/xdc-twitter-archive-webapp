@@ -51,7 +51,7 @@ export default function FooterComponent() {
             <Xinfin>XDC Speed Test</Xinfin>
           </Row>
 
-          <Year> &copy; 2021</Year>
+          <Year> &copy; 2022</Year>
         </Column>
       </Row>
     </Footer>
