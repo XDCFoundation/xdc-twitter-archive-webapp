@@ -20,6 +20,7 @@ export const httpConstants = {
         WEB: 'web'
     },
     API_END_POINT: {
+        TWEET_ARCHIVE_END_POINT: "tweet-archive",
         ARCHIVE_TWEET_COUNT: "saved-tweet"
     }
 };

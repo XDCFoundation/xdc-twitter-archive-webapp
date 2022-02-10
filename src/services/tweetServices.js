@@ -3,12 +3,14 @@ import { httpConstants } from "../constants";
 
 export default { getTweetByUrl, getArchivedTweetCount };
 
-async function getTweetByUrl(path, data) {
-  let url = process.env.REACT_APP_GET_TWEET_BY_URL + path;
+async function getTweetByUrl(requestData) {
+  let url =
+    process.env.REACT_APP_GET_TWEET_BY_URL +
+    httpConstants.API_END_POINT.TWEET_ARCHIVE_END_POINT;
   return httpService(
-    httpConstants.METHOD_TYPE.GET,
+    httpConstants.METHOD_TYPE.POST,
     { "Content-Type": httpConstants.CONTENT_TYPE.APPLICATION_JSON },
-    data,
+    requestData,
     url
   )
     .then((response) => {

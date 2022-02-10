@@ -90,6 +90,7 @@ const MobileView = styled.div`
 `;
 export default function HeaderComponent(props) {
   const [inputValue, setInputValue] = useState("");
+  // console.log('pr---',props?.headerLink)
 
   return (
     <>
@@ -103,11 +104,11 @@ export default function HeaderComponent(props) {
             <Input
               type="text"
               readOnly={true}
-              value={props?.count?.length > 0 ? props?.headerLink : ""}
+              value={props?.headerLink || ""}
               onChange={(e) => setInputValue(e.target.value)}
             />
             <CopyToClipboard
-              text={props?.count?.length > 0 ? props?.headerLink : ""}
+              text={props?.headerLink}
             >
               <Button>Copy</Button>
             </CopyToClipboard>
@@ -127,11 +128,11 @@ export default function HeaderComponent(props) {
               <Input
                 type="text"
                 readOnly={true}
-                value={props?.count?.length > 0 ? props?.headerLink : ""}
+                value={props?.headerLink || ""}
                 onChange={(e) => setInputValue(e.target.value)}
               />
               <CopyToClipboard
-                text={props?.count?.length > 0 ? props?.headerLink : ""}
+                text={props?.headerLink}
               >
                 <Button>Copy</Button>
               </CopyToClipboard>
