@@ -180,10 +180,10 @@ export default function MainComponent(props) {
   const location = useLocation();
   const url = location.search.slice(5);
 
-  let value = props?.count[0]?.name;
-  let words = props?.count[0]?.text;
-  let time = moment(props?.count[0]?.createdAt).format("LT");
-  let date = moment(props?.count[0]?.createdAt).format("LL");
+  let value = props?.count?.name;
+  let words = props?.count?.text;
+  let time = moment(props?.count?.createdAt).format("LT");
+  let date = moment(props?.count?.createdAt).format("LL");
   let icon = value
     ?.split(" ")
     .map((x) => x.charAt(0))
@@ -277,7 +277,7 @@ export default function MainComponent(props) {
                       <Row className={classes.span_tweet}>{value}</Row>
                       <Row>
                         <Email>
-                          {dummyHandle ? "@" + dummyHandle : "Loading.."}
+                          {dummyHandle ? "@" + dummyHandle : ""}
                         </Email>
                       </Row>
                     </Name>
