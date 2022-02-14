@@ -50,6 +50,7 @@ const Input = styled.input`
   width: 43%;
   margin-left: 25px;
   margin-top: 11px;
+  padding-left: 20px;
 `;
 const Button = styled.button`
   color: #ffffff;
