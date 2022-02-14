@@ -24,23 +24,6 @@ export default function CardComponent() {
     fetchCount();
   }, []);
 
-  // const fetchCount = () => {
-  //   let data = {
-  //     url,
-  //   };
-  //   axios
-  //     .post(process.env.REACT_APP_GET_TWEET_BY_URL, data)
-  //     .then((res) => {
-  //       console.log('re--',res)
-  //       Utils.apiSuccessToast("Your tweet has been Archived");
-  //       setCount(res.data.responseData[0]);
-  //       setLink(res.data.responseData[1]?.tweet_url);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //     });
-  // };
-
   const fetchCount =  async () => {
       const reqObj = {
         url,
@@ -52,7 +35,7 @@ export default function CardComponent() {
         console.log('er--',err)
       }
       else{
-        console.log('res---',res[1]?.tweet_url)
+        // console.log('res---',res)
         Utils.apiSuccessToast("Your tweet has been Archived");
         setCount(res[0][0] || "");
         setLink(res[1]?.tweet_url || "");

@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Row, Column } from "simple-flexbox";
 import MainComponent from "../modules/MainComponent/mainComponent";
-
+import toast, { Toaster } from "react-hot-toast";
 import Popup from "../modules/popupbox";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -171,7 +171,15 @@ export default function Album(props) {
   const classes = useStyles();
   const history = useHistory();
   const [tweet, setTweet] = useState("");
-  let archiveTweetCount = Number(props?.archiveCount)
+
+  const errorMessage = () =>
+    toast.error('Enter Correct Url', {
+      duration: 2000,
+      position: 'top-center',
+      className: "toast-div-address",
+    });
+
+  let archiveTweetCount = Number(props?.archiveCount);
 
   const redirect = () => {
     var urlRegex = /^http[s]?:\/\/(www\.)?(.*)?\/?(.)*/;
@@ -182,12 +190,13 @@ export default function Album(props) {
     ) {
       history.push("/archive?url=" + tweet);
     } else {
-      alert("Enter Correct URL");
+      errorMessage()
     }
   };
 
   return (
     <div>
+      <Toaster />
       <React.Fragment>
         <main className={classes.main}>
           <TextView>

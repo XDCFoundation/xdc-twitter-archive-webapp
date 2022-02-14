@@ -7,6 +7,7 @@ import { Grid } from "react-bootstrap";
 import millify from "millify";
 import Utils from "../../utility";
 import { TweetService } from "../../services/index";
+import toast, { Toaster } from "react-hot-toast";
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -118,6 +119,13 @@ export default function Headerconditional(props) {
   const [tweet, setTweet] = useState("");
   const [archiveTweetCount, setArchiveTweetCount] = useState("");
 
+  const errorMessage = () =>
+  toast.error('Enter Correct Url', {
+    duration: 2000,
+    position: 'top-center',
+    className: "toast-div-address",
+  });
+
   useEffect(() => {
     totalArchiveTweets();
   }, []);
@@ -130,7 +138,7 @@ export default function Headerconditional(props) {
       console.log("hello");
     } else {
       setArchiveTweetCount(res?.response[1]?.blockchainTweetCount);
-      console.log("res", res?.response[1]?.blockchainTweetCount);
+      // console.log("res", res?.response[1]?.blockchainTweetCount);
     }
   };
   let archiveCount = Number(archiveTweetCount);
@@ -144,11 +152,14 @@ export default function Headerconditional(props) {
     ) {
       history.push("/archive?url=" + tweet);
     } else {
-      alert("Enter Correct URL");
+      errorMessage()
     }
   };
   return (
     <>
+       <div>
+        <Toaster />
+      </div>
       <DesktopView>
         <Container>
           <Row>
