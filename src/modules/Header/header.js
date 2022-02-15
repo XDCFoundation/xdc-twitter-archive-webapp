@@ -2,8 +2,13 @@ import styled, { css } from "styled-components";
 import { Row, Column } from "simple-flexbox";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import React, { useState } from "react";
+import {
+  socialMediaLinks
+} from "../../constants";
 
 const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   background-color: #191d43;
@@ -47,7 +52,7 @@ const Input = styled.input`
   text-align: left;
   border: none;
   height: 32px;
-  width: 43%;
+  width: 420px;
   margin-left: 25px;
   margin-top: 11px;
   padding-left: 20px;
@@ -72,6 +77,20 @@ const Button = styled.button`
     color: black;
   }
 `;
+
+const SpeedButton = styled.button`
+  color: white;
+  background-color: transparent;
+  border: 0.5px solid #ffffff;
+  overflow: hidden;
+  padding: 4px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: grey;
+  }
+`;
+
 const DesktopView = styled.div`
   @media (min-width: 0px) and (max-width: 767px) {
     display: none;
@@ -108,11 +127,14 @@ export default function HeaderComponent(props) {
               value={props?.headerLink || ""}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <CopyToClipboard
-              text={props?.headerLink}
-            >
+            <CopyToClipboard text={props?.headerLink}>
               <Button>Copy</Button>
             </CopyToClipboard>
+          </Row>
+          <Row className="button-row">
+            <a href={socialMediaLinks.XDC_SPEED_TEST_LINK} target="_blank">
+              <SpeedButton>XDC Speed Test</SpeedButton>
+            </a>
           </Row>
         </Container>
       </DesktopView>
@@ -132,9 +154,7 @@ export default function HeaderComponent(props) {
                 value={props?.headerLink || ""}
                 onChange={(e) => setInputValue(e.target.value)}
               />
-              <CopyToClipboard
-                text={props?.headerLink}
-              >
+              <CopyToClipboard text={props?.headerLink}>
                 <Button>Copy</Button>
               </CopyToClipboard>
             </Row>
