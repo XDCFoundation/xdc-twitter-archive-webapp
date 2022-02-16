@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from 'react-router-dom';
 import { Row, Column } from "simple-flexbox";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
@@ -8,6 +9,9 @@ import millify from "millify";
 import Utils from "../../utility";
 import { TweetService } from "../../services/index";
 import toast, { Toaster } from "react-hot-toast";
+import {
+  socialMediaLinks
+} from "../../constants";
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -83,6 +87,8 @@ const MobileView = styled.div`
 `;
 
 const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   background-color: #191d43;
@@ -112,6 +118,18 @@ const Span = styled.span`
   font-style: normal;
   line-height: 1.19;
 `;
+const SpeedButton = styled.button`
+  color: white;
+  background-color: transparent;
+  border: 0.5px solid #ffffff;
+  overflow: hidden;
+  padding: 4px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: grey;
+  }
+`;
 
 export default function Headerconditional(props) {
   const classes = useStyles();
@@ -120,11 +138,11 @@ export default function Headerconditional(props) {
   const [archiveTweetCount, setArchiveTweetCount] = useState("");
 
   const errorMessage = () =>
-  toast.error('Enter Correct Url', {
-    duration: 2000,
-    position: 'top-center',
-    className: "toast-div-address",
-  });
+    toast.error("Enter Correct Url", {
+      duration: 2000,
+      position: "top-center",
+      className: "toast-div-address",
+    });
 
   useEffect(() => {
     totalArchiveTweets();
@@ -152,12 +170,13 @@ export default function Headerconditional(props) {
     ) {
       history.push("/archive?url=" + tweet);
     } else {
-      errorMessage()
+      errorMessage();
     }
   };
+
   return (
     <>
-       <div>
+      <div>
         <Toaster />
       </div>
       <DesktopView>
@@ -166,6 +185,11 @@ export default function Headerconditional(props) {
             <a href="/">
               <Image src="/images/archiveLogo.png" />
             </a>
+          </Row>
+          <Row className="button-row">
+          <a href={socialMediaLinks.XDC_SPEED_TEST_LINK} target="_blank">
+          <SpeedButton>XDC Speed Test</SpeedButton>
+          </a> 
           </Row>
         </Container>
       </DesktopView>

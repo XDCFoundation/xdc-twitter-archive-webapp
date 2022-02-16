@@ -295,3 +295,7 @@ input:focus {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
 }
+
+.button-row{
+  padding: 9px 60px 5px 0;
+}

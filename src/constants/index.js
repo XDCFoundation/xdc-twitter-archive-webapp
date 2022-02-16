@@ -23,4 +23,9 @@ export const httpConstants = {
         TWEET_ARCHIVE_END_POINT: "tweet-archive",
         ARCHIVE_TWEET_COUNT: "saved-tweet"
     }
+    
+};
+
+export const socialMediaLinks = {
+    XDC_SPEED_TEST_LINK: "https://speedtest.xdc.org:444",
 };
