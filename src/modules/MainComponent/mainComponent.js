@@ -174,6 +174,17 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     marginRight: "auto",
   },
+  mainRow:{
+    display: 'flex',
+    flexFlow: 'row-nowrap',
+  },
+  "@media (min-width: 0px) and (max-width: 767px)": {
+    mainRow:{
+      display: 'flex',
+      flexFlow: 'row-nowrap',  
+      width: '300px'
+    },
+  },
 }));
 export default function MainComponent(props) {
   const classes = useStyles();
@@ -201,7 +212,7 @@ export default function MainComponent(props) {
       {props?.load ? (
         <Grid xs={12}>
           <Mainbox>
-            <Row>
+            <Row className={classes.mainRow}>
               <Container>
                 <Column className={classes.mainColumn}>
                   <Row>

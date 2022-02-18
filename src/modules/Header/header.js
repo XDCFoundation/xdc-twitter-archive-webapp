@@ -12,6 +12,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: #191d43;
+  flex-flow: wrap;
 `;
 const Image = styled.img`
   padding: 10px;
@@ -56,6 +57,12 @@ const Input = styled.input`
   margin-left: 25px;
   margin-top: 11px;
   padding-left: 20px;
+  @media(min-width: 0px) and (max-width: 767px){
+    width: 230px;
+  }
+  @media(min-width: 768px) and (max-width: 1024px){
+    width: 300px;
+  }
 `;
 const Button = styled.button`
   color: #ffffff;
