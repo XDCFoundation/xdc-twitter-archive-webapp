@@ -299,3 +299,8 @@ input:focus {
 .button-row{
   padding: 9px 60px 5px 0;
 }
+@media(min-width: 768px) and (max-width: 1024px){
+  .button-row{
+    display: none !important;
+  }
+}
