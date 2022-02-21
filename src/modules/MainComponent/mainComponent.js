@@ -128,8 +128,8 @@ const Mainbox = styled.div`
   flex-direction: row;
   @media (min-width: 0px) and (max-width: 767px) {
     width: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
+    /* padding-left: 10%;
+    padding-right: 10%; */
   }
 `;
 
