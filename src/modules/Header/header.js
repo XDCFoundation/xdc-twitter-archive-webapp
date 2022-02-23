@@ -83,6 +83,12 @@ const Button = styled.button`
   &:hover {
     color: black;
   }
+  @media(min-width: 0px) and (max-width: 767px){
+    width: 67px;
+  }
+  @media(min-width: 768px) and (max-width: 1024px){
+    width: 67px;
+  }
 `;
 
 const SpeedButton = styled.button`
@@ -153,7 +159,7 @@ export default function HeaderComponent(props) {
               <MobileImage src="/images/archiveLogo.png" />
             </a>
           </Row>
-          <Column style={{ paddingBottom: "20px" }}>
+          <Column style={{ padding: "0 30px 20px 0" }}>
             <Row>
               <Input
                 type="text"

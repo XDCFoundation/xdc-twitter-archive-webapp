@@ -30,7 +30,7 @@ async function getTweetByUrl(requestData) {
 
 async function getArchivedTweetCount(requestData) {
   let url =
-    process.env.REACT_APP_ARCHIVED_TWEET_COUNT +
+    process.env.REACT_APP_GET_TWEET_BY_URL +
     httpConstants.API_END_POINT.ARCHIVE_TWEET_COUNT;
   return httpService(
     httpConstants.METHOD_TYPE.GET,

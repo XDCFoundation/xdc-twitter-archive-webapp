@@ -5,7 +5,6 @@ import MainComponent from "./mainComponent";
 import { Row, Column } from "simple-flexbox";
 import FooterComponent from "../Footer/footer";
 import { useLocation, useParams } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Toast from "./Toast";
 import Utils from "../../utility";
