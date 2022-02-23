@@ -11,7 +11,6 @@ import MainComponent from "../modules/MainComponent/mainComponent";
 import toast, { Toaster } from "react-hot-toast";
 import Popup from "../modules/popupbox";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 import millify from "millify";
 
 const useStyles = makeStyles((theme) => ({

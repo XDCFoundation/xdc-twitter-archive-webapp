@@ -5,7 +5,6 @@ import Popup from "../popupbox";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
-import axios from "axios";
 import { useLocation, useParams } from "react-router-dom";
 import "../../assets/styles/custom.css";
 import Toast from "./Toast";
@@ -201,10 +200,7 @@ export default function MainComponent(props) {
     .join("")
     .substr(0, 1)
     .toUpperCase();
-  let dummyHandle = value
-    ?.slice(0, value?.length)
-    .replace(/\s/g, "")
-    .toLowerCase();
+  let advanceHandle = props.count?.username || ""
 
   return (
     <>
@@ -288,7 +284,7 @@ export default function MainComponent(props) {
                       <Row className={classes.span_tweet}>{value}</Row>
                       <Row>
                         <Email>
-                          {dummyHandle ? "@" + dummyHandle : ""}
+                          {advanceHandle?.length >=1 ? "@" + advanceHandle : ""}
                         </Email>
                       </Row>
                     </Name>
