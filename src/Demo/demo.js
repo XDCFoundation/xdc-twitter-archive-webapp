@@ -251,10 +251,12 @@ export default function Album(props) {
                             Stop Fake News
                           </Typography>
                           <Typography className={classes.subheading}>
-                            Help in making the world better-informed
+                            {/* Help in making the world better-informed */}
+                            Save the disinformative tweets, file a legal complaint against them and
                           </Typography>
                           <Typography className={classes.subheading}>
-                            by stopping fake news
+                            {/* by stopping fake news */}
+                            help make the world better-informed.
                           </Typography>
                         </CardContent>
                       </div>
@@ -273,10 +275,12 @@ export default function Album(props) {
                           Archive your Tweets
                         </Typography>
                         <Typography className={classes.subheading}>
-                          Archive your tweets in our platform so that
+                          {/* Archive your tweets in our platform so that */}
+                          Make your tweets stay forever by archiving them
                         </Typography>
                         <Typography className={classes.subheading}>
-                          it stays forever
+                          {/* it stays forever */}
+                          on the XDC blockchain.
                         </Typography>
                       </CardContent>
                     </div>
@@ -294,10 +298,12 @@ export default function Album(props) {
                           Save links for legal actions
                         </Typography>
                         <Typography className={classes.subheading}>
-                          Use your saved links for the future legal
+                          {/* Use your saved links for the future legal */}
+                          Use your archived tweets’ links to
                         </Typography>
                         <Typography className={classes.subheading}>
-                          actions
+                          {/* actions */}
+                          file complaints on them.
                         </Typography>
                       </CardContent>
                     </div>

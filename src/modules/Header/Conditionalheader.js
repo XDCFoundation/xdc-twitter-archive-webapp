@@ -106,6 +106,19 @@ const MobileImage = styled.img`
   margin-left: -10px;
   width: 200px;
   margin-top: 3px;
+  @media (max-width: 380px) {
+    width: 160px;
+  }
+`;
+
+const ButtonContainer = styled.div`
+display: flex;
+`;
+const ImageContainer = styled.div`
+flex : 1;
+`;
+const SpeedButtonContainer = styled.div`
+padding: 9px 0px 5px 0;
 `;
 const Span = styled.span`
   color: #ffffff;
@@ -128,6 +141,24 @@ const SpeedButton = styled.button`
   cursor: pointer;
   &:hover {
     background-color: grey;
+  }
+`;
+
+const MobileSpeedButton = styled.button`
+color: white;
+  background-color: transparent;
+  border: 0.5px solid #ffffff;
+  overflow: hidden;
+  padding: 4px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: grey;
+  }
+
+  @media (max-width: 380px) {
+    padding: revert;
+    margin-top: 5px;
   }
 `;
 
@@ -187,9 +218,9 @@ export default function Headerconditional(props) {
             </a>
           </Row>
           <Row className="button-row">
-          <a href={socialMediaLinks.XDC_SPEED_TEST_LINK} target="_blank">
-          <SpeedButton>XDC Speed Test</SpeedButton>
-          </a> 
+            <a href={socialMediaLinks.XDC_SPEED_TEST_LINK} target="_blank">
+              <SpeedButton>XDC Speed Test</SpeedButton>
+            </a>
           </Row>
         </Container>
       </DesktopView>
@@ -197,11 +228,18 @@ export default function Headerconditional(props) {
       <MobileView>
         <Container>
           <Grid item xs={12}>
-            <Row>
-              <a href="/">
-                <MobileImage src="/images/archiveLogo.png" />
-              </a>
-            </Row>
+            <ButtonContainer>
+              <ImageContainer>
+                <a href="/">
+                  <MobileImage src="/images/archiveLogo.png" />
+                </a>
+              </ImageContainer>
+              <SpeedButtonContainer>
+                <a href={socialMediaLinks.XDC_SPEED_TEST_LINK} target="_blank">
+                  <MobileSpeedButton>XDC Speed Test</MobileSpeedButton>
+                </a>
+              </SpeedButtonContainer>
+            </ButtonContainer>
             <Column style={{ color: "white" }}></Column>
             <Column style={{ color: "white", marginTop: "15px" }}>
               <Row>
