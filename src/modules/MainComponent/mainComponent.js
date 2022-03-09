@@ -173,15 +173,16 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     marginRight: "auto",
   },
-  mainRow:{
+  mainRow: {
     display: 'flex',
     flexFlow: 'row-nowrap',
   },
   "@media (min-width: 0px) and (max-width: 767px)": {
-    mainRow:{
+    mainRow: {
       display: 'flex',
-      flexFlow: 'row-nowrap',  
-      width: '300px'
+      flexFlow: 'row-nowrap',
+      // width: '300px'
+      width: '100%',
     },
   },
 }));
@@ -284,7 +285,7 @@ export default function MainComponent(props) {
                       <Row className={classes.span_tweet}>{value}</Row>
                       <Row>
                         <Email>
-                          {advanceHandle?.length >=1 ? "@" + advanceHandle : ""}
+                          {advanceHandle?.length >= 1 ? "@" + advanceHandle : ""}
                         </Email>
                       </Row>
                     </Name>

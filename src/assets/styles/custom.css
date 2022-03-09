@@ -1,6 +1,6 @@
 @import url("../../../node_modules/bootstrap/dist/css/bootstrap.css");
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Work+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Work+Sans&display=swap");
 
 /* @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap"); */
 
@@ -20,8 +20,8 @@ span,
 label {
   font-family: "Roboto", "Open Sans", "Helvetica Neue", "Helvetica", "Arial",
     "sans-serif" !important;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-family: 'Work Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 html,
@@ -42,8 +42,8 @@ span,
 label {
   font-family: "SFProText", "Open Sans", "Helvetica Neue", "Helvetica", "Arial",
     "sans-serif" !important;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-family: 'Work Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 input:focus {
@@ -247,7 +247,7 @@ input:focus {
 .twitter {
   width: 100%;
   border-radius: 12px;
-  background-color: #ffffff
+  background-color: #ffffff;
 }
 
 .loader {
@@ -266,29 +266,47 @@ input:focus {
 
 /* Safari */
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .animated {
   background-repeat: no-repeat;
-  -webkit-animation-duration: 5s;animation-duration: 5s;
-  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 @-webkit-keyframes fadeOut {
-  0% {opacity: 1;}
-  100% {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes fadeOut {
-  0% {opacity: 1;}
-  100% {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .fadeOut {
@@ -296,11 +314,14 @@ input:focus {
   animation-name: fadeOut;
 }
 
-.button-row{
+.button-row {
   padding: 9px 60px 5px 0;
 }
-@media(min-width: 768px) and (max-width: 1024px){
-  .button-row{
+.mobile-button-row {
+  padding: 9px 0px 9px 0;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* .button-row{
     display: none !important;
-  }
+  } */
 }

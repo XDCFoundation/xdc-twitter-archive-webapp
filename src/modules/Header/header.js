@@ -104,6 +104,21 @@ const SpeedButton = styled.button`
   }
 `;
 
+const DesktopButtonContainer = styled.div`
+ padding: 9px 60px 5px 0;
+ @media (min-width: 768px) and (max-width: 880px) {
+    padding: 9px 0px 9px 0;
+    margin-right : auto;
+    margin-left: auto;
+
+  }
+`;
+
+const MobileButtonContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 const DesktopView = styled.div`
   @media (min-width: 0px) and (max-width: 767px) {
     display: none;
@@ -144,11 +159,11 @@ export default function HeaderComponent(props) {
               <Button>Copy</Button>
             </CopyToClipboard>
           </Row>
-          <Row className="button-row">
+          <DesktopButtonContainer>
             <a href={socialMediaLinks.XDC_SPEED_TEST_LINK} target="_blank">
               <SpeedButton>XDC Speed Test</SpeedButton>
             </a>
-          </Row>
+          </DesktopButtonContainer>
         </Container>
       </DesktopView>
 
@@ -172,6 +187,13 @@ export default function HeaderComponent(props) {
               </CopyToClipboard>
             </Row>
           </Column>
+          <MobileButtonContainer>
+            <Row className="mobile-button-row">
+              <a href={socialMediaLinks.XDC_SPEED_TEST_LINK} target="_blank">
+                <SpeedButton>XDC Speed Test</SpeedButton>
+              </a>
+            </Row>
+          </MobileButtonContainer>
         </Container>
       </MobileView>
     </>
