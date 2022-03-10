@@ -106,9 +106,9 @@ const MobileImage = styled.img`
   margin-left: -10px;
   width: 200px;
   margin-top: 3px;
-  @media (max-width: 380px) {
-    width: 160px;
-  }
+  // @media (max-width: 380px) {
+  //   width: 160px;
+  // }
 `;
 
 const ButtonContainer = styled.div`
