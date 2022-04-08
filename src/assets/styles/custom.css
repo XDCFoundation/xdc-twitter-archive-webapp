@@ -40,7 +40,7 @@ div,
 p,
 span,
 label {
-  font-family: "SFProText", "Open Sans", "Helvetica Neue", "Helvetica", "Arial",
+  font-family: "SFProText", "Open Sans", "Raleway", "Raleway", "Arial",
     "sans-serif" !important;
   font-family: "IBM Plex Sans", sans-serif;
   font-family: "Work Sans", sans-serif;
@@ -316,6 +316,7 @@ input:focus {
 
 .button-row {
   padding: 9px 60px 5px 0;
+  font-family: 'raleway';
 }
 .mobile-button-row {
   padding: 9px 0px 9px 0;
