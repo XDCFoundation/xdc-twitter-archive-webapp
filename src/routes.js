@@ -21,14 +21,15 @@ class Routes extends BaseComponent {
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Router history={history}>
           <Switch>
+            <Redirect exact from="/" to="/tweetarchive" />
             {/* <Route exact path={"/"} component={Login} /> */}
             {/* <Route exact path={"/sign-up"} component={SignUp} />
             <Route exact path={"/header"} component={Header} /> */}
             <Route exact path={"/archive"} component={CardComponent} />
             {/* <Route exact path={"/tweetlink"} component={Link} /> */}
-            <Route exact path={"/"} component={Demo} />
+            <Route exact path={"/tweetarchive"} component={Demo} />
             {/* <Route exact path={"/popup"} component={Popup} /> */}
-            <Redirect exact from="*" to="/" />
+            {/* <Redirect exact from="*" to="/" /> */}
           </Switch>
         </Router>
       </MuiThemeProvider>
