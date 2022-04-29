@@ -26,9 +26,9 @@ class Routes extends BaseComponent {
             <Route exact path={"/header"} component={Header} /> */}
             <Route exact path={"/archive"} component={CardComponent} />
             {/* <Route exact path={"/tweetlink"} component={Link} /> */}
-            <Route exact path={"/tweetarchive"} component={Demo} />
+            <Route exact path={"/tweet-archive"} component={Demo} />
             {/* <Route exact path={"/popup"} component={Popup} /> */}
-            <Redirect exact from="*" to="/tweetarchive" />
+            <Redirect exact from="*" to="/tweet-archive" />
           </Switch>
         </Router>
       </MuiThemeProvider>
